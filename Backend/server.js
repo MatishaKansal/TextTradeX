@@ -1,10 +1,8 @@
+require('dotenv').config();
 const express = require('express');
-const dotenv = require('dotenv');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
 
-// Load env variables
-dotenv.config();
 
 // Connect to MongoDB
 connectDB();
