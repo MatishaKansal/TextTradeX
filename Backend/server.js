@@ -2,12 +2,18 @@ require('dotenv').config();
 const express = require('express');
 const connectDB = require('./config/db');
 const authRoutes = require('./routes/authRoutes');
+const cors = require('cors');
 
+const app = express();
+
+// Enable CORS for all routes
+app.use(cors());
+// If you want to restrict origins, use:
+// app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 
 // Connect to MongoDB
 connectDB();
 
-const app = express();
 app.use(express.json()); // Parse JSON bodies
 
 // ✅ Debug logger (optional, but useful)
