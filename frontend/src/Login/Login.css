@@ -27,13 +27,22 @@
     border-bottom-left-radius: 20px;
 }
 
+.text{
+    font-size: 3vh; 
+    margin-top: 10%;
+}
+.Ltext{
+    font-weight: 500;
+    font-size: 6vh;
+    margin-top: -5%;
+}
 .SignUpButton{
     font-size: large;
     font-weight: 600;
     border-radius: 15px;
     border: none;
     padding: 5px;
-    width: 25vh;
+    width: 110%;
 }
 
 .right{
@@ -63,44 +72,46 @@
 }
 
 .LogButton{
-    font-size: large;
-    font-weight: 600;
+    font-size: 2.8vh;
+    font-weight: 300;
     border-radius: 15px;
-    margin-left: 10px;
-    width: 20vh;
+    margin-left: 7vw;
+    width: 15vh;
     margin-right: 80px;
     padding-top: 3px;
     padding-bottom: 3px;
     background-color: #3AAF9F;
     color: white;
+    margin-top: 1.5vh;
 }
 
-.Forgot{
-    font-size: medium;
-    font-weight: 300;
+/* .Forgot{
+    margin-top:-7.3vh;
+    font-size: 2.5vh;
+    font-weight: 500;
     border-radius: 15px;
-    margin-left: 160px;
-    width: 20vh;
-    margin-right: 10px;
-    padding-top: 3px;
-    padding-bottom: 3px;
+    margin-left: 9vw;
+    width: 25vh;
+    padding-top: 1%;
+    padding-bottom: 1%;
     background-color: white;
     color: black;
-}
+} */
 
 .break {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 5px;
-  margin-top: -10;
+  margin-top: 3%;
 }
 
 .break hr {
-  width: 150px;         
+  width: 10vw;         
   height: 1px;          
   border: none;
   background-color: black;
+  margin-top: 3%;
 }
 
 .optionBox{
@@ -108,6 +119,8 @@
     flex-direction: column;
     gap: 10px;
     width: 70%;
+    margin-bottom: 10%;
+    /* margin-top: 2%; */
 }
 
 .box1{
@@ -117,8 +130,8 @@
     border: 2px groove rgb(41, 40, 40);
     gap: 8px;
     height: 4vh;
-    font-size: 17px;
-    padding-left: 5px;
-    padding-right: 5px;
+    font-size: 2vh;
+    padding-left: 3px;
+    padding-right: 3px;
     border-radius: 5px;
 }
