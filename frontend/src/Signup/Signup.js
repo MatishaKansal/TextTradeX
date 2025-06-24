@@ -48,8 +48,8 @@ const Signup = () => {
         <div className="main">
             <div className='box'>
                 <div className="leftBox">
-                    <span style={{ fontWeight: "600", fontSize: '34px', color: 'white', paddingLeft: '5px', paddingRight: '5px' }}>Welcome back !!</span>
-                    <span style={{ fontSize: '16px', color: 'white', paddingLeft: '5px', textAlign:'center', paddingRight: '5px' }}>Sign in to the world where knowledge blooms !!</span>
+                    <span style={{ textAlign: 'center', fontWeight: '600', fontSize: '30px', color: 'white', paddingLeft: '5px', paddingRight: '5px' }}>Welcome back !!</span>
+                    <span style={{ fontSize: '16px', color: 'white', paddingLeft: '15px', textAlign:'center', paddingRight: '15px' }}>Sign in to the world where knowledge blooms !!</span>
                     <Link to="/">
                         <button className="logInButton">
                             Log In
@@ -57,8 +57,8 @@ const Signup = () => {
                     </Link>
                 </div>
                 <div className="rightBox">
-                    <span style={{ fontSize: '26px' , marginTop: 10}}>Start now !!</span>
-                    <span style={{ fontWeight: "600", fontSize: '36px',marginTop: -20 }}>Create Account</span>
+                    <span className='text'>Start now !!</span>
+                    <span span className = "Ltext">Create Account</span>
                     <form onSubmit={handleSubmit} className='form'>
                         <input style = {{paddingLeft : 10, fontSize: '14px', marginTop:5}} className='input' type="email" onChange={handleChange} placeholder='Email Address' name="email" value={formData.email} />
                         <input style = {{paddingLeft : 10, fontSize: '14px', marginTop:5}} className='input' type="password" onChange={handleChange} placeholder='Password' name="password" value={formData.password} />

@@ -50,6 +50,16 @@
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+.text{
+    font-size: 1.5vw; 
+    margin-top: 10%;
+}
+
+.Ltext{
+    font-weight: 500;
+    font-size: 2.3vw;
+    margin-top: -4%;
+}
 
 .form{
     display: flex;
@@ -65,10 +75,11 @@
 }
 
 .signInButton{
-    font-size: large;
+    width: 22vh;
+    font-size: 1.2vw;
     font-weight: 600;
     border-radius: 15px;
-    margin-left: 80px;
+    margin-left: 5vw;
     margin-right: 80px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -105,8 +116,8 @@
     border: 2px groove rgb(41, 40, 40);
     gap: 8px;
     height: 4vh;
-    font-size: 17px;
-    padding-left: 5px;
-    padding-right: 5px;
+    font-size: 2vh;
+    padding-left: 3px;
+    padding-right: 3px;
     border-radius: 5px;
 }
