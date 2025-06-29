@@ -49,7 +49,19 @@ exports.loginUser = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user && (await user.matchPassword(password))) {
-      res.status(200).json({ message: 'Logged in Successfully' });
+      res.status(200).json({
+      message: 'Logged in Successfully',
+      token: generateToken(user._id),
+      user: {
+        _id: user._id,
+        email: user.email,
+        name: user.name,
+        age: user.age,
+        mobile: user.mobile,
+        city: user.city,
+        state: user.state
+      }
+    });
     } else {
       res.status(401).json({ message: 'Invalid email or password' });
     }
