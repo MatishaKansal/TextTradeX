@@ -11,11 +11,11 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-name: { type: String },
-age: { type: Number },
-mobile: { type: String },
-city: { type: String },
-state: { type: String }
+ name: { type: String },
+ age: { type: Number },
+ mobile: { type: String },
+ city: { type: String },
+ state: { type: String }
 });
 
 // Hash password before saving
