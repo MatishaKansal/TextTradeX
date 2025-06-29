@@ -58,3 +58,36 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: 'Server error during login' });
   }
 };
+exports.updateProfile = async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id);
+
+    if (!user) return res.status(404).json({ message: 'User not found' });
+
+    // Only update if data is sent
+    user.name = req.body.name || user.name;
+    user.age = req.body.age || user.age;
+    user.mobile = req.body.mobile || user.mobile;
+    user.city = req.body.city || user.city;
+    user.state = req.body.state || user.state;
+
+    const updatedUser = await user.save();
+
+    res.status(200).json({
+      message: 'Profile updated successfully',
+      user: {
+        _id: updatedUser._id,
+        email: updatedUser.email,
+        name: updatedUser.name,
+        age: updatedUser.age,
+        mobile: updatedUser.mobile,
+        city: updatedUser.city,
+        state: updatedUser.state
+      }
+    });
+  } catch (err) {
+    console.error('PROFILE UPDATE ERROR:', err);
+    res.status(500).json({ message: 'Server error during profile update' });
+  }
+};
+
