@@ -1,7 +1,9 @@
 import React from 'react';
 import "./UserDetail.css";
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { Link,useNavigate } from 'react-router-dom';
+import { baseUrl } from "../urls";
 
 const UserDetail = () => {
 
@@ -34,14 +36,14 @@ const UserDetail = () => {
         }
 
         try {
-            // const res = await axios.post(`${baseUrl}/api/auth/`, {
-            //     firstName: formData.firstName,
-            //     lastName: formData.lastName,
-            //     age: formData.age,
-            //     state: formData.state,
-            //     city: formData.city,
-            //     mobileNo: formData.mobileNo
-            // });
+            const res = await axios.post(`${baseUrl}/api/auth/`, {
+                firstName: formData.firstName,
+                lastName: formData.lastName,
+                age: formData.age,
+                state: formData.state,
+                city: formData.city,
+                mobileNo: formData.mobileNo
+            });
             setMessage('');
             setTimeout(() => {
                 navigate("/");
