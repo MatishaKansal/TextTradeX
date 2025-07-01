@@ -1,0 +1,151 @@
+.card {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    /* border: 1px solid #E8EEEF; */
+    width: 21vw;
+    height: auto;
+    margin: 1.2vw;
+    margin-left: 2vw;
+    border-radius: 15px;
+    padding-left: 0.5vw;
+    padding-right: 0.5vw;
+    background-color: #B6D8D3;
+    box-sizing: border-box;
+}
+
+.top {
+  margin: 2%;
+  border: 1px groove black;
+  border-radius: 12px;
+  margin-top: 2vh;
+  width: 100%;
+  height: 25vh;         
+  /* background-color: white; */
+  display: block;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.image {
+  border: 1px groove red;
+
+  /* width: 2vw;
+  height: 2vh; */
+  /* object-fit: fill;   */
+  /* border-image-width: auto; */
+  /* border-radius: 12px; */
+  /* border: 1px groove red; */
+  border-radius: 12px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+  display: block;
+}
+
+.heartbutton{
+  background: none;
+  border: none;
+  /* margin-top: -10vh;
+  margin-left: 15vw; */
+}
+
+.heart {
+  position: absolute;
+  top: 20px;
+  right: 1.5vw;
+  background-color: white;
+  /* color: white; */
+  border-radius: 50%;
+  padding: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 20px;
+}
+
+.bottom {
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 2vw; */
+    gap: 4px;
+    /* border: 1px solid black; */
+
+}
+
+.price {
+    font-size: 2.5vh;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;;
+}
+
+.title {
+    /* white-space: nowrap;
+    overflow: hidden;            
+    text-overflow: ellipsis;     */
+    width: 20vw;   
+    font-weight: 700;
+    font-size: 3vh;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.desc {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 14px;
+
+    /* multi-line ellipsis */
+    /* display: -webkit-box;
+    -webkit-line-clamp: 1;
+    👈 limit to 2 lines */
+    /*-webkit-box-orient: vertical; */
+    white-space: nowrap;         /* keep text on one line */
+    overflow: hidden;            /* hide overflow */
+    text-overflow: ellipsis;     /* add ... */
+    width: 20vw; 
+    /* overflow: hidden;
+    text-overflow: ellipsis; */
+
+}
+
+.button {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    font-size: 2vw;
+    margin-left: 5vw;
+    margin-top: auto;
+    margin-bottom: 2vh;
+    width: 50%;
+    background: linear-gradient(to left, #4CBF97, #4EAFBA);
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.btText {
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+@media (max-width: 1024px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+
+@media (max-width: 600px) {
+  .card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}

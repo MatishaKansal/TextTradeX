@@ -1,0 +1,33 @@
+.footerStyle {
+  background: linear-gradient(to top, #4CBF97, #4EAFBA);
+  text-align: left;
+  padding: 20px;
+  /* display: flex; */
+}
+
+.f_head{
+  /* text-decoration: underline; */
+  font-size: 1.3vw;
+  font-weight: 600;
+}
+
+.f_details{
+  background: none;
+  border: none;
+  font-size: 1vw;
+  margin-left: -0.2vw;
+}
+.f_details:active{
+  text-decoration: underline;
+}
+
+.buttonStyle {
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1.5vw;
+  margin-left: 94vw;
+}
