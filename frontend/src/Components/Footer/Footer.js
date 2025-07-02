@@ -16,41 +16,41 @@ const Footer = () => {
   const navigate = useNavigate();
 
   return (
-    <footer className="footerStyle">
-        <div >
+    <>
+      <footer className="footerStyle">
+        <div className="topRow">
+          <div >
             <span className="f_head"> Quick Links</span>
-            <br></br>
+            <br />
             <button className="f_details" onClick={() => navigate("/")}>Home</button>
             <br></br>
             <button className="f_details" onClick={() => navigate("/Sell")}>Sell a Book</button>
             <br></br>
             <button className="f_details" onClick={() => navigate("/Signup")}>Login / Register</button>
+          </div>
+          <br></br>
+          <div >
+            <span className="f_head">Contact Us</span>
+            <br />
+            <button className="f_detail" >Email: ________</button>
+            <br></br>
+            <button className="f_detail" >Phone: +91 XXXXX XXXXX</button>
+          </div>
         </div>
         <br></br>
-        <div >
-            <span className="f_head">Contact Us</span>
-            <br></br>
-            <button className="f_details" >Email: ________</button>
-            <br></br>
-            <button className="f_details" >Phone: +91 XXXXX XXXXX</button>
+        <div  >
+          <span className="f_head"> Copyright</span>
+          <br />
+          <button className="f_detail" >"© 2025 TextTradeX: All rights reserved"</button>
+          <br />
+          <button className="f_detail" >"Made with ❤️ by [Team Name]"</button>
         </div>
 
-        <br></br>
-        <div >
-            <span className="f_head"> Copyright</span>
-            <br></br>
-            <button className="f_details" >"© 2025 TextTradeX: All rights reserved"</button>
-            <br></br>
-            <button className="f_details" >"Made with ❤️ by [Team Name]"</button>
-        </div>
-            
-                
-        <div>
-        </div>
-      <button onClick={scrollToTop} className="buttonStyle">
-        <FaArrowUp />
-      </button>
-    </footer>
+        <button onClick={scrollToTop} className="buttonStyle">
+          <FaArrowUp />
+        </button>
+      </footer>
+    </>
   );
 
 };

@@ -72,13 +72,14 @@
 }
 
 .sell{
-    margin-top: 2.5vh;
     height: 5vh;
     margin-left: 2.5vw;
     font-size: 1.2vw;
     /* font-style: italic; */
-    font-weight: 700;
+    font-weight: 800;
     background-color: #E8EEEF;
-    border: 3px solid #3AAF9F;
+    border: 5px solid #3AAF9F;
     color: #3AAF9F;
+    border-radius: 15px;
+    margin-top: 2.5vh;
 }

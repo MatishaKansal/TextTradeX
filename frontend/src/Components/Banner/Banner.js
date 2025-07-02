@@ -19,7 +19,7 @@ const Banner = ({name}) => {
                 <Link to="/Signup">
                 <button className="register" >{name ||'Register'}</button>
                 </Link>
-                <button className="cart_button"><BsCart4 className='cart_icon'size={40} /></button>
+                <button style={{background:"none", border:"none"}}><BsCart4 className='cart_icon'size={40} /></button>
                 <button className="sell" >SELL</button>
 
             </div>
