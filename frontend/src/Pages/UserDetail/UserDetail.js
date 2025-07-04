@@ -52,6 +52,7 @@ const UserDetail = () => {
                 },
             }
         );
+            localStorage.setItem("user", JSON.stringify(res.data.user));
             setMessage('');
             setTimeout(() => {
                 navigate("/");
