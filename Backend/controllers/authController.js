@@ -55,9 +55,10 @@ exports.loginUser = async (req, res) => {
       user: {
         _id: user._id,
         email: user.email,
-        name: user.name,
+        firstName: user.firstName,
+        lastName: user.lastName,
         age: user.age,
-        mobile: user.mobile,
+        mobileNo: user.mobileNo,
         city: user.city,
         state: user.state
       }
@@ -77,9 +78,10 @@ exports.updateProfile = async (req, res) => {
     if (!user) return res.status(404).json({ message: 'User not found' });
 
     // Only update if data is sent
-    user.name = req.body.name || user.name;
+    user.firstName = req.body.firstName || user.firstName;
+    user.lastName = req.body.lastName || user.lastName;
     user.age = req.body.age || user.age;
-    user.mobile = req.body.mobile || user.mobile;
+    user.mobileNo = req.body.mobileNo || user.mobileNo;
     user.city = req.body.city || user.city;
     user.state = req.body.state || user.state;
 
@@ -90,9 +92,10 @@ exports.updateProfile = async (req, res) => {
       user: {
         _id: updatedUser._id,
         email: updatedUser.email,
-        name: updatedUser.name,
+        firstName: updatedUser.firstName,
+        lastName: updatedUser.lastName,
         age: updatedUser.age,
-        mobile: updatedUser.mobile,
+        mobileNo: updatedUser.mobileNo,
         city: updatedUser.city,
         state: updatedUser.state
       }

@@ -29,21 +29,29 @@ const UserDetail = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
+        console.log(formData)
         if (formData.firstName === "" || formData.lastName === "" || formData.age === "" || formData.state === "" || formData.city === "" || formData.mobileNo === "") {
             setMessage("All fields are mandatory");
             return;
         }
 
         try {
-            const res = await axios.post(`${baseUrl}/api/auth/`, {
+            const token = localStorage.getItem('token');
+            console.log("Token being sent:", token)
+            const res = await axios.patch(`${baseUrl}/api/auth/profile`, {
                 firstName: formData.firstName,
                 lastName: formData.lastName,
                 age: formData.age,
                 state: formData.state,
                 city: formData.city,
                 mobileNo: formData.mobileNo
-            });
+            },
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
             setMessage('');
             setTimeout(() => {
                 navigate("/");
@@ -67,7 +75,7 @@ const UserDetail = () => {
                         <input style={{ paddingLeft: 10, fontSize: '14px', marginTop: 5 }} className='input' type="text" onChange={handleChange} placeholder='Last Name' name="lastName" value={formData.lastName} />
                         <input style={{ paddingLeft: 10, fontSize: '14px', marginTop: 5 }} className='input' type="text" onChange={handleChange} placeholder='Age' name="age" value={formData.age} />
                         {/* <input style={{ paddingLeft: 10, fontSize: '14px', marginTop: 5 }} className='input' type="text" onChange={handleChange} placeholder='State' name="state" value={formData.state} /> */}
-                              <select style={{ paddingLeft: 9, fontSize: '14px', marginTop: 5 }} className="state" value={formData.state} onChange={handleChange} required>
+                              <select style={{ paddingLeft: 9, fontSize: '14px', marginTop: 5 }} className="state" name="state" value={formData.state} onChange={handleChange} required>
                                     <option value="">State</option>
                                     <option value="Andhra Pradesh">Andhra Pradesh</option>
                                     <option value="Arunachal Pradesh">Arunachal Pradesh</option>

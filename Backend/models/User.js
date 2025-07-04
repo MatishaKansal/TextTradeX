@@ -11,9 +11,10 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true
   },
- name: { type: String },
+ firstName: { type: String },
+ lastName: { type: String},
  age: { type: Number },
- mobile: { type: String },
+ mobileNo: { type: String },
  city: { type: String },
  state: { type: String }
 });

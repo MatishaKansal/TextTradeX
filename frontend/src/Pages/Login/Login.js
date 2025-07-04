@@ -25,6 +25,15 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post(`${baseUrl}/api/auth/login`, formData);
+            console.log("Full response:", response)
+            const token = response.data.token;
+            if (token) {
+                localStorage.setItem("token", token);
+                console.log("token stored in localStorage:", token)
+                alert("Login successful")
+            } else {
+                alert("Login failed: Token not received")
+            }
             alert("Login successfully");
 
         } catch (error) {
@@ -51,10 +60,10 @@ const Login = () => {
                   <span className="text">Already have an Account ?</span>
                     <span className = "Ltext">Log In</span>
                     {/* <form onSubmit={handleSubmit} className='form'> */}
-                    <form className='form'>
+                    <form className='form' onSubmit={handleSubmit}>
                         <input style = {{paddingLeft : 10, fontSize: '14px', marginTop:5}} className='input' type="email" onChange={handleChange} placeholder='Email Address' name="email" value={formData.email} />
                         <input style = {{paddingLeft : 10, fontSize: '14px', marginTop:5}} className='input' type="password" onChange={handleChange} placeholder='Password' name="password" value={formData.password} />
-                        <button className="LogButton" onClick={handleSubmit}>Log In</button>
+                        <button className="LogButton" type="submit">Log In</button>
                     </form>
                     {/* <form onSubmit={handleForgotPassword} className='form'>
                         <button className="Forgot" onSubmit={handleForgotPassword}> Forgot Password</button>

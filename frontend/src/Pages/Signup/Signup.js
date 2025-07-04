@@ -39,6 +39,14 @@ const Signup = () => {
                 email: formData.email,
                 password: formData.password,
             });
+            console.log("Signup response:", res.data);
+            const token = res.data.token;
+            if (token) {
+            localStorage.setItem("token", token);
+            console.log("Stored token:", token);
+            } else {
+            console.warn("No token received");
+            }
             alert("Sign in successfully")
             setMessage("");
             setTimeout(() => {
