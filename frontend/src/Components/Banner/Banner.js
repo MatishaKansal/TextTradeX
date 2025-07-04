@@ -1,6 +1,6 @@
 import React from 'react';
 import "./Banner.css";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import TextTradeX from './TextTradeX.png'
@@ -8,7 +8,16 @@ import { FaSearch } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
 // import Signup from '../Signup/Signup';
 
-const Banner = ({name}) => {
+const Banner = () => {
+    const [name, setName] = useState("");
+
+    useEffect(() => {
+        const userData = JSON.parse(localStorage.getItem('user'));
+        if (userData?.firstName) {
+            setName(userData.firstName);
+        }
+    }, []);
+    
     return (
         <div>
             <div className="titlebar">
