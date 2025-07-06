@@ -1,4 +1,5 @@
 const User = require('../models/User');
+const Book = require('../models/Book');
 const jwt = require('jsonwebtoken');
 
 // Generate JWT
@@ -71,6 +72,7 @@ exports.loginUser = async (req, res) => {
     res.status(500).json({ message: 'Server error during login' });
   }
 };
+
 exports.updateProfile = async (req, res) => {
   try {
     const user = await User.findById(req.user._id);
@@ -106,3 +108,27 @@ exports.updateProfile = async (req, res) => {
   }
 };
 
+exports.addBookInfo = async (req, res) => {
+  const { bookName, board, bClass, subject, price, medium, author, description } = req.body;
+
+  if(!bookName || !board || !bClass || !subject || !price || !medium) {
+    return res.status(400).json({message: 'Mandatory fields not provided!'})
+  }
+
+  const fileData = req.file ? {
+    filename: req.file.filename,
+    originalname: req.file.originalname,
+    path: req.file.path,
+    mimetype: req.file.mimetype,
+    size: req.file.size
+  } : null;
+
+  try {
+    const newBook = new Book({ bookName, board, bClass, subject, price, medium, description, file: fileData });
+    await newBook.save();
+    res.status(201).json({message: 'Book added successfully', book: newBook});
+  } catch (err) {
+    console.error('ADD BOOK ERROR:', err);
+    res.status(500).json({message: 'Server error during book addition'});
+  }
+};

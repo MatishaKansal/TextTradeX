@@ -1,13 +1,16 @@
 const express = require('express');
 const router = express.Router();
-const { registerUser, loginUser, updateProfile } = require('../controllers/authController');
+const { registerUser, loginUser, updateProfile, addBookInfo } = require('../controllers/authController');
 const protect = require('../middleware/auth');
+
 
 // POST /api/auth/register
 router.post('/register', registerUser);
 
 // POST /api/auth/login
 router.post('/login', loginUser);
+
+router.post('/sell', protect, addBookInfo);
 
 // PATCH /api/auth/profile
 router.patch('/profile', protect, updateProfile);
