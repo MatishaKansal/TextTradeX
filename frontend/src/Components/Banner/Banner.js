@@ -26,7 +26,25 @@ const Banner = () => {
         setDropdownOpen(false);
         navigate("/");
     };    
-        
+
+  const [name, setName] = useState("");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const userData = JSON.parse(localStorage.getItem("user"));
+    if (userData?.firstName) {
+      setName(userData.firstName);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setName("");
+    setDropdownOpen(false);
+    navigate("/Signup");
+  };    
+    
     return (
         <div>
             <div className="titlebar">

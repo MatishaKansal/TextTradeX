@@ -17,6 +17,8 @@ const Login = () => {
     
     const navigate = useNavigate();
 
+    const navigate = useNavigate();
+
     const handleChange = (e) => {
         setFormData(prev => ({
             ...prev,
@@ -44,6 +46,8 @@ const Login = () => {
             setTimeout(() => {
                 navigate("/");
             }, 1000);            
+            alert("Login successfully");
+            
 
         } catch (error) {
             console.error(error.response?.data || "Login failed");
