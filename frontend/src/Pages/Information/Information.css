@@ -1,0 +1,16 @@
+.basic_text{
+    margin-top: 15vh;
+    margin-left: 6vw;
+    margin-right: 6vw;
+    margin-bottom: 5vh;
+    background-color: white;
+    padding: 2vw;
+    font-size: 1.5vw;
+}
+
+.infoImg{
+    width: 15vw;
+    height: auto;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}

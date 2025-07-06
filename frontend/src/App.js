@@ -4,16 +4,23 @@ import Home from './Pages/Home/Home';
 import UserDetail from './Pages/UserDetail/UserDetail';
 import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
+import Sell from './Pages/Sell/Sell';
+import Information from './Pages/Information/Information';
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/UserDetail" element={<UserDetail />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/Signup" element={<Signup />} /> 
+          <Route path="/Sell" element={<Sell />} /> 
+          <Route path="/Information" element={<Information />} /> 
         </Routes>
       </BrowserRouter>
 

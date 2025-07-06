@@ -20,6 +20,7 @@
     font-weight: 500;
     /* font-style: italic; */
     font-family:'Georgia';
+    color: black;
 }
 
 .search_bar{
@@ -50,12 +51,32 @@
     width: 10vw;
     margin-left: 2vw;
     font-size: 1.5vw;
+    text-align: center;
     /* font-style: italic; */
     font-weight: 600;
     color: #116d77;
     background: none;
     border: none;
+    /* border: groove 2px black; */
 }
+
+.sign_out_bootn{
+    margin-left: 2vw;
+    font-size: 1vw;
+    text-align: center;
+    width: 10vw;
+    height: 5vh;
+    border: none;
+}
+
+.register:hover{
+    border: groove 2px black;
+}
+.sign_out_bootn:hover{
+    background-color: #dceae8;
+}
+
+
 .cart_button{
     height: 10vh;
     width: 5vw;
@@ -72,13 +93,14 @@
 }
 
 .sell{
-    height: 5vh;
+    height: 6vh;
+    width: 5vw;
     margin-left: 2.5vw;
     font-size: 1.2vw;
     /* font-style: italic; */
-    font-weight: 800;
+    font-weight: 750;
     background-color: #E8EEEF;
-    border: 5px solid #3AAF9F;
+    border: 3px solid #3AAF9F;
     color: #3AAF9F;
     border-radius: 15px;
     margin-top: 2.5vh;

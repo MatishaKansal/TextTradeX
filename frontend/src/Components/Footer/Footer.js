@@ -7,10 +7,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Footer = () => {
   const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth"
-    });
+    window.scrollTo(0,0);
   };
 
   const navigate = useNavigate();
@@ -23,6 +20,8 @@ const Footer = () => {
             <span className="f_head"> Quick Links</span>
             <br />
             <button className="f_details" onClick={() => navigate("/")}>Home</button>
+            <br></br>
+            <button className="f_details" onClick={() => navigate("/Information")}>About</button>
             <br></br>
             <button className="f_details" onClick={() => navigate("/Sell")}>Sell a Book</button>
             <br></br>

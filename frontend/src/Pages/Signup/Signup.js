@@ -64,7 +64,7 @@ const Signup = () => {
                 <div className="leftBox">
                     <span style={{ textAlign: 'center', fontWeight: '600', fontSize: '30px', color: 'white', paddingLeft: '5px', paddingRight: '5px' }}>Welcome back !!</span>
                     <span style={{ fontSize: '16px', color: 'white', paddingLeft: '15px', textAlign:'center', paddingRight: '15px' }}>Sign in to the world where knowledge blooms !!</span>
-                    <Link to="/">
+                    <Link to="/Login">
                         <button className="logInButton">
                             Log In
                         </button>
