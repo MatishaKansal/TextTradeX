@@ -2,7 +2,7 @@ import React from 'react';
 import "./Login.css";
 import { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import Signup from "../Signup/Signup";
 import { baseUrl } from "../urls"
 // import { postToBackend } from "@/store/fetchdata";
@@ -13,6 +13,8 @@ const Login = () => {
         email: "",
         password: "",
     });
+
+    const navigate = useNavigate();
 
     const handleChange = (e) => {
         setFormData(prev => ({
@@ -31,10 +33,13 @@ const Login = () => {
                 localStorage.setItem("token", token);
                 console.log("token stored in localStorage:", token)
                 alert("Login successful")
+                navigate("/");
+
             } else {
                 alert("Login failed: Token not received")
             }
             alert("Login successfully");
+            
 
         } catch (error) {
             console.error(error.response?.data || "Login failed");
@@ -101,3 +106,5 @@ const Login = () => {
 
 
 export default Login;
+
+

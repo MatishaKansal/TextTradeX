@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken');
 const User = require('../models/User');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 const protect = async (req, res, next) => {
   const authHeader = req.headers.authorization;
