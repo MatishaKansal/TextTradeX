@@ -9,6 +9,24 @@ import { BsCart4 } from "react-icons/bs";
 // import Signup from '../Signup/Signup';
 
 const Banner = () => {
+    const [name, setName] = useState("");
+    const [dropdownOpen, setDropdownOpen] = useState(false);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        const userData = JSON.parse(localStorage.getItem("user"));
+        if (userData?.firstName) {
+        setName(userData.firstName);
+        }
+    }, []);
+
+    const handleLogout = () => {
+        localStorage.removeItem("user");
+        setName("");
+        setDropdownOpen(false);
+        navigate("/");
+    };    
+
   const [name, setName] = useState("");
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const navigate = useNavigate();
