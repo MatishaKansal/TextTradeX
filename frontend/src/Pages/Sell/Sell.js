@@ -8,13 +8,12 @@ import { useLocation } from 'react-router-dom';
 
 
 const Sell = () => {
-
     const [data, setData] = useState({
-        book_name: "",
-        desc: "",
+        bookName: "",
+        description: "",
         price: "",
         board: "",
-        classNo: "",
+        bClass: "",
         subject: "",
         author: "",
         medium: "",
@@ -26,52 +25,62 @@ const Sell = () => {
             ...prev,
             [e.target.name]: e.target.value,
         }));
-    }
+    };
 
     // Image uploading
 
-    const handleImageChange = async (e) => {
+    const handleImageChange = (e) => {
         const files = Array.from(e.target.files);
         if (files.length === 0 || files.length > 4) {
             alert("Please select at least 1 and at most 4 images.");
             e.target.value = null; 
             return;
         }
-        const base64Images = await Promise.all(files.map(toBase64));
         setData(prev => ({
-        ...prev,
-        images: base64Images
+            ...prev,
+            images: files
         }));
     };
 
     const toBase64 = (file) =>
         new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.readAsDataURL(file);
-        reader.onload = () => resolve(reader.result);
-        reader.onerror = (error) => reject(error);
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = (error) => reject(error);
         });
 
     // on pressing upload
 
     const handleSubmit = async () => {
-        const isAnyFieldEmpty = Object.values(data).some(value => !value);
+        const token = localStorage.getItem('token');
+        const formData = new FormData();
 
-        if (isAnyFieldEmpty) {
-            alert("Please fill in all the fields before submitting.");
-            return;
+        // Append all fields except images
+        formData.append('bookName', data.bookName);
+        formData.append('description', data.description);
+        formData.append('price', data.price);
+        formData.append('board', data.board);
+        formData.append('bClass', data.bClass);
+        formData.append('subject', data.subject);
+        formData.append('author', data.author);
+        formData.append('medium', data.medium);
+
+        // Append images (as files)
+        for (let i = 0; i < data.images.length; i++) {
+            formData.append('images', data.images[i]);
         }
 
-        if (data.images.length === 0) {
-            alert("Please upload at least 1 image before submitting.");
-            return; // 🚫 Stop submission
-        }
         try {
-        const res = await axios.post("http://localhost:5000/api/books", data);
-        alert("Data sent successfully!");
-        console.log(data)
+            const res = await axios.post("http://localhost:8080/api/auth/sell", formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            alert("Data sent successfully!");
         } catch (err) {
-        console.error("Error uploading:", err);
+            console.error("Error uploading:", err);
         }
     };
 
@@ -119,9 +128,9 @@ const Sell = () => {
 
     const handleClassChange = (e) => {
         setClassNo(e.target.value);
-                setData(prev => ({
+        setData(prev => ({
             ...prev,
-            classNo: e.target.value,
+            bClass: e.target.value,
         }));
     };
 
@@ -155,7 +164,7 @@ const Sell = () => {
                     <form className="sell_form">
                         <div className="container">
                             <span className="label">Book name :</span>
-                            <input type="text" name="book_name" onChange={handleChange} value={data.title} maxLength={70} className='sell_input' />
+                            <input type="text" name="bookName" onChange={handleChange} value={data.bookName} maxLength={70} className='sell_input' />
                         </div>
                         <div className="container">
                             <span className="label">Board :</span>
@@ -307,11 +316,11 @@ const Sell = () => {
                         <div className="container">
                             <span className="label" >Description :</span>
                             <textarea type="text" 
-                                    name="desc"  
+                                    name="description"  
                                     wrap="soft" 
                                     rows={5} 
                                     onChange={handleChange} 
-                                    value={data.desc} 
+                                    value={data.description} 
                                     maxLength={100} 
                                     className='description-box' />
                         </div>
