@@ -6,11 +6,13 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Sell from './Pages/Sell/Sell';
 import Information from './Pages/Information/Information';
+import ScrollToTop from "./Component/ScrollToTop/ScrollToTop";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/UserDetail" element={<UserDetail />} />

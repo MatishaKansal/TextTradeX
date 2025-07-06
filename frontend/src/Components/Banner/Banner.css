@@ -59,14 +59,24 @@
     border: none;
     /* border: groove 2px black; */
 }
-
+.register:hover{
+    border: groove 2px black;
+}
 .sign_out_bootn{
+    margin-left: 2vw;
+    font-size: 1vw;
+    text-align: center;
+    width: 10vw;
     margin-left: 3.5vw;
     font-size: 1vw;
     text-align: center;
     width: 7vw;
     height: 5vh;
     border: none;
+}
+
+.sign_out_bootn:hover{
+    background-color: #dceae8;
 }
 
 

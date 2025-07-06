@@ -13,6 +13,9 @@ const Login = () => {
         email: "",
         password: "",
     });
+    const [message, setMessage] = useState("");
+    
+    const navigate = useNavigate();
 
     const navigate = useNavigate();
 
@@ -38,6 +41,11 @@ const Login = () => {
             } else {
                 alert("Login failed: Token not received")
             }
+            localStorage.setItem("user", JSON.stringify(response.data.user));
+            setMessage('');
+            setTimeout(() => {
+                navigate("/");
+            }, 1000);            
             alert("Login successfully");
             
 
