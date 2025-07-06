@@ -77,21 +77,6 @@ const Login = () => {
                     {/* <form onSubmit={handleForgotPassword} className='form'>
                         <button className="Forgot" onSubmit={handleForgotPassword}> Forgot Password</button>
                     </form> */}
-                    <div className="break">
-                        <hr />
-                        <span>OR</span>
-                        <hr />
-                    </div>
-                    <div className="optionBox">
-                        <div className="box1">
-                            <img src="https://img.icons8.com/color/16/google-logo.png" alt="" />
-                            <span>Continue with Google</span>
-                        </div>
-                        <div className="box1">
-                            <img src="https://img.icons8.com/fluency/16/microsoft.png" alt="" />
-                            <span>Continue with Microsoft</span>
-                        </div>
-                    </div> 
                 </div>
                  <div className="right">
                     <span style={{ textAlign: 'center', fontWeight: "600", fontSize: '34px', color: 'white', paddingLeft: '5px', paddingRight: '5px' }}>New here ?</span>
