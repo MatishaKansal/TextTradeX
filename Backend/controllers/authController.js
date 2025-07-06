@@ -106,7 +106,7 @@ exports.updateProfile = async (req, res) => {
     console.error('PROFILE UPDATE ERROR:', err);
     res.status(500).json({ message: 'Server error during profile update' });
   }
-};
+}
 
 exports.addBookInfo = async (req, res) => {
   const { bookName, board, bClass, subject, price, medium, author, description } = req.body;
