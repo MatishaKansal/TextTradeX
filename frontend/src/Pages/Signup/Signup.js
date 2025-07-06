@@ -83,21 +83,6 @@ const Signup = () => {
                         }
                         <button style = {{marginTop:10}}className="signInButton" onClick={handleSubmit}>Sign Up</button>
                     </form>
-                    <div className="break">
-                        <hr />
-                        <span>OR</span>
-                        <hr />
-                    </div>
-                    <div className="optionBox">
-                        <div className="box1">
-                            <img src="https://img.icons8.com/color/16/google-logo.png" alt="" />
-                            <span >Continue with Google</span>
-                        </div>
-                        <div className="box1">
-                            <img src="https://img.icons8.com/fluency/16/microsoft.png" alt="" />
-                            <span>Continue with Microsoft</span>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>

@@ -6,6 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import TextTradeX from './TextTradeX.png'
 import { FaSearch } from "react-icons/fa";
 import { BsCart4 } from "react-icons/bs";
+import { FaRegHeart } from "react-icons/fa";
 // import Signup from '../Signup/Signup';
 
 const Banner = () => {
@@ -61,7 +62,7 @@ const Banner = () => {
             )}
             
 
-                <button style={{background:"none", border:"none"}}><BsCart4 className='cart_icon'size={40} /></button>
+                <button style={{background:"none", border:"none"}}><FaRegHeart className='cart_icon'size={40} /></button>
                 <Link to="/Sell">               
                 <button className="sell" >SELL</button>
                 </Link>

@@ -57,6 +57,7 @@
     color: #116d77;
     background: none;
     border: none;
+    cursor: pointer;
     /* border: groove 2px black; */
 }
 
@@ -87,9 +88,13 @@
 }
 .cart_icon{
       /* font-size: 100px;  */
+    height: 4vh;
+    width: 5vw;
     margin-top: 0.5vh;
     padding: 1.5vh;
+    cursor: pointer;
     /* margin-left: 2.5vw; */
+
 }
 
 .sell{
@@ -104,4 +109,5 @@
     color: #3AAF9F;
     border-radius: 15px;
     margin-top: 2.5vh;
+    cursor: pointer;
 }

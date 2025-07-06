@@ -17,10 +17,10 @@
 }
 .left{
     background-color: white;
-    gap: 20px;
+    gap: 30px;
     display: flex;
     flex-direction: column;
-    width : 60%;
+    width : 65%;
     align-items: center;
     justify-content: center;
     border-top-left-radius: 20px;
@@ -28,8 +28,9 @@
 }
 
 .text{
-    font-size: 3vh; 
+    font-size: 2vh; 
     margin-top: 10%;
+    margin-left: 0.5%;
 }
 .Ltext{
     font-weight: 500;
@@ -42,7 +43,9 @@
     border-radius: 15px;
     border: none;
     padding: 5px;
-    width: 110%;
+    width: 15vw;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .right{
@@ -55,7 +58,7 @@
     background: linear-gradient(to top, #4CBF97, #4EAFBA);
     border-top-right-radius: 20px;
     border-bottom-right-radius: 20px;
-    width: 40%;
+    width: 35%;
 }
 
 .form{
@@ -75,9 +78,9 @@
     font-size: 2.8vh;
     font-weight: 300;
     border-radius: 15px;
-    margin-left: 7vw;
-    width: 15vh;
-    margin-right: 80px;
+    margin-left: auto;
+    width: 15vw;
+    margin-right: auto;
     padding-top: 3px;
     padding-bottom: 3px;
     background-color: #3AAF9F;
