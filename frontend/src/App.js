@@ -6,7 +6,8 @@ import Login from './Pages/Login/Login';
 import Signup from './Pages/Signup/Signup';
 import Sell from './Pages/Sell/Sell';
 import Information from './Pages/Information/Information';
-import ScrollToTop from "./Component/ScrollToTop/ScrollToTop";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
+
 
 function App() {
   return (

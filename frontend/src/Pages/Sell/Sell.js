@@ -18,7 +18,7 @@ const Sell = () => {
         subject: "",
         author: "",
         medium: "",
-
+        images: [],
     });
 
     const handleChange = (e) => {
@@ -26,44 +26,52 @@ const Sell = () => {
             ...prev,
             [e.target.name]: e.target.value,
         }));
-        console.log(e.target.value);
     }
-
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        try {
-            const response = await axios.post("", data);
-
-        } catch (error) {
-            console.error(error.response?.data || "Upload failed");
-        }
-    };
 
     // Image uploading
 
-    const [images, setImages] = useState([]);   
-
-    const handleImageChange = (e) => {
+    const handleImageChange = async (e) => {
         const files = Array.from(e.target.files);
-
-        // Limit to 4 files
-        if (files.length > 4) {
-        alert("You can only upload up to 4 images.");
-        return;
+        if (files.length === 0 || files.length > 4) {
+            alert("Please select at least 1 and at most 4 images.");
+            e.target.value = null; 
+            return;
         }
-
-        setImages(files);
+        const base64Images = await Promise.all(files.map(toBase64));
+        setData(prev => ({
+        ...prev,
+        images: base64Images
+        }));
     };
 
-    const handleUpload = async () => {
-        try {
-        const res = await axios.post('http://localhost:5000/upload', {
-            image: images
+    const toBase64 = (file) =>
+        new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (error) => reject(error);
         });
-        alert('Image uploaded successfully!');
+
+    // on pressing upload
+
+    const handleSubmit = async () => {
+        const isAnyFieldEmpty = Object.values(data).some(value => !value);
+
+        if (isAnyFieldEmpty) {
+            alert("Please fill in all the fields before submitting.");
+            return;
+        }
+
+        if (data.images.length === 0) {
+            alert("Please upload at least 1 image before submitting.");
+            return; // 🚫 Stop submission
+        }
+        try {
+        const res = await axios.post("http://localhost:5000/api/books", data);
+        alert("Data sent successfully!");
+        console.log(data)
         } catch (err) {
-        console.error(err);
-        alert('Upload failed!');
+        console.error("Error uploading:", err);
         }
     };
 
@@ -83,6 +91,10 @@ const Sell = () => {
 
         if (selected !== "Paid") {
         setCustomPrice("");
+        setData(prev => ({
+            ...prev,
+            price: e.target.value,
+        }));
         }
     };
 
@@ -95,14 +107,22 @@ const Sell = () => {
         setBoard(selected);
         if (selected !== "Others") {
         setCustomBoard("");
+        setData(prev => ({
+            ...prev,
+            board: e.target.value,
+        }));
         }
     };
 
     // Class
-    const [classNo, setClass] = useState("");
+    const [classNo, setClassNo] = useState("");
 
     const handleClassChange = (e) => {
-        setClass(e.target.value);
+        setClassNo(e.target.value);
+                setData(prev => ({
+            ...prev,
+            classNo: e.target.value,
+        }));
     };
 
     // Subject
@@ -114,6 +134,10 @@ const Sell = () => {
         setSubject(selected);
         if (selected !== "Others") {
         setCustomSubject("");
+        setData(prev => ({
+            ...prev,
+            subject: e.target.value,
+        }));
         }
     };    
 
@@ -136,6 +160,7 @@ const Sell = () => {
                         <div className="container">
                             <span className="label">Board :</span>
                             <select
+                                name="board"
                                 value={board}
                                 onChange={handleBoardChange}
                                 className="sell_input"
@@ -158,7 +183,10 @@ const Sell = () => {
                             type="text"
                             placeholder="Enter Board Name"
                             value={customBoard}
-                            onChange={(e) => setCustomBoard(e.target.value)}
+                            onChange={(e) => {
+                                setCustomBoard(e.target.value);
+                                setData(prev => ({ ...prev, board: e.target.value }));
+                            }}
                             className="sell_input"
                             />
                         )}
@@ -196,6 +224,7 @@ const Sell = () => {
                         <div className="container">
                             <span className="label">Subject :</span>
                             <select
+                                name="subject"
                                 value={subject}
                                 onChange={handleSubjectChange}
                                 className="sell_input"
@@ -221,12 +250,15 @@ const Sell = () => {
                                 <option value="Physics">Physics</option>
                                 <option value="Political Science">Political Science</option>
                             </select>
-                            {board === "Others" && (
+                            {subject === "Others" && (
                             <input
                             type="text"
                             placeholder="Enter Subject Name"
                             value={customSubject}
-                            onChange={(e) => setCustomSubject(e.target.value)}
+                            onChange={(e) => {
+                                setCustomBoard(e.target.value);
+                                setData(prev => ({ ...prev, subject: e.target.value }));
+                            }}
                             className="sell_input"
                             />
                         )}
@@ -235,6 +267,7 @@ const Sell = () => {
                         <div className="container">
                         <span className="label">Price (in ₹):</span>
                         <select
+                            name="price"
                             style={{borderWidth: '2px'}}
                             value={priceType}
                             onChange={handleSelectChange}
@@ -251,7 +284,10 @@ const Sell = () => {
                             type="text"
                             placeholder="Enter price"
                             value={customPrice}
-                            onChange={(e) => setCustomPrice(e.target.value)}
+                            onChange={(e) => {
+                                setCustomPrice(e.target.value);
+                                setData(prev => ({ ...prev, price: e.target.value }));
+                            }}
                             className="sell_input"
                             />
                         )}
@@ -287,19 +323,6 @@ const Sell = () => {
                                 accept="image/*"
                                 onChange={handleImageChange}
                             />
-
-                            {images.length > 0 && (
-                                <div style={{ display: "flex", gap: "10px", marginTop: "10px" }}>
-                                {images.map((file, index) => (
-                                    <img
-                                    key={index}
-                                    src={URL.createObjectURL(file)}
-                                    alt={`preview-${index}`}
-                                    style={{ width: "100px", height: "100px", objectFit: "cover" }}
-                                    />
-                                ))}
-                        </div>
-                      )}
                     </div>                    
                     </form>
                 </div>

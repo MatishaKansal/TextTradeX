@@ -58,6 +58,7 @@ const Signup = () => {
         }
     };
 
+
     return (
         <div className="main">
             <div className='box'>
@@ -90,7 +91,7 @@ const Signup = () => {
                     <div className="optionBox">
                         <div className="box1">
                             <img src="https://img.icons8.com/color/16/google-logo.png" alt="" />
-                            <span>Continue with Google</span>
+                            <span >Continue with Google</span>
                         </div>
                         <div className="box1">
                             <img src="https://img.icons8.com/fluency/16/microsoft.png" alt="" />
