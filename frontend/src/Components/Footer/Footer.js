@@ -22,7 +22,7 @@ const Footer = () => {
             <br />
             <button className="f_details" onClick={() => navigate("/")}>Home</button>
             <br></br>
-            <button className="f_details" onClick={() => navigate("/Information")}>About</button>
+            <button className="f_details" onClick={() => navigate("/Information")}>About Us</button>
             <br></br>
             <button className="f_details" onClick={() => navigate("/Sell")}>Sell a Book</button>
             <br></br>

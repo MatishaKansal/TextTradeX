@@ -326,6 +326,7 @@ const Sell = () => {
                         </div>
 
                         <div className="container">
+                            <span className="label" >Upload Images (max 4) :</span>
                             <input
                                 type="file"
                                 multiple
