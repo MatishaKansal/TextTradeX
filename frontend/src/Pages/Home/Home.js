@@ -37,7 +37,7 @@ const Home = () => {
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {
                 ads.map((ad) => {
-                        <AdCard key={ad.id} image={ad.img} price="500" title={ad.title} desc={ad.desc}/>
+                        <AdCard key={ad.id} image={ad.img} price={ad.price} title={ad.title} desc={ad.desc}/>
                 })
         }
         </div>
