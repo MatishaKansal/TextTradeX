@@ -7,9 +7,23 @@ import AdCard from "../../Components/AdCard/AdCard";
 import Footer from "../../Components/Footer/Footer";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
 import { useLocation } from 'react-router-dom';
+import { useState,useEffect } from 'react';
 
 
 const Home = () => {
+
+        const [ads, setAds] = useState([]);
+
+//   useEffect(() => {
+//     axios.get("http://localhost:8080")  
+//       .then((res) => {
+//         setAds(res.data);
+//       })
+//       .catch((err) => {
+//         console.error("Error fetching ads:", err);
+//       });
+//   }, []);
+
   const location = useLocation();
 //   console.log('name')
 
@@ -21,51 +35,12 @@ const Home = () => {
       <Toolbar />
       <ImageSlider />
       <div style={{ display: "flex", flexWrap: "wrap" }}>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="The quick brown fox jumps over the lazy dog again.
-" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore. t, consectetur adipiscing elit. Sed do eiusmod te
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="The quick brown fox jumps over the lazy dog again.
-" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="The quick brown fox jumps over the lazy dog again.
-" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="The quick brown fox jumps over the lazy dog again.
-" desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-        <AdCard image="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQbyroJpWIxQrIG5_1A8SI1a42PjXhQlMqkTQ&s" price="500" title="Book" desc="Lorem ipsum dolor sit amet, cmpor incididunt ut labore.
-"/>
-      </div>
+        {
+                ads.map((ad) => {
+                        <AdCard key={ad.id} image={ad.img} price="500" title={ad.title} desc={ad.desc}/>
+                })
+        }
+        </div>
       <Footer />
     </div>
   );
