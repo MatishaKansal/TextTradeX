@@ -6,6 +6,7 @@ import Banner from "../../Components/Banner/Banner";
 import AdCard from "../../Components/AdCard/AdCard";
 import Footer from "../../Components/Footer/Footer";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
+import BookList from '../../Components/BookList/BookList';
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
@@ -34,6 +35,7 @@ const Home = () => {
         <Banner name={name}/>
       <Toolbar />
       <ImageSlider />
+
       <div style={{ display: "flex", flexWrap: "wrap" }}>
         {
                 ads.map((ad) => {
@@ -41,6 +43,9 @@ const Home = () => {
                 })
         }
         </div>
+
+      <h2 style={{ textAlign: 'center', margin: '20px 0' }}>Available Books</h2>
+      <BookList />  
       <Footer />
     </div>
   );
