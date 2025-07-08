@@ -6,7 +6,7 @@ import Banner from "../../Components/Banner/Banner";
 import AdCard from "../../Components/AdCard/AdCard";
 import Footer from "../../Components/Footer/Footer";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
-import BookList from '../../Components/BookList/BookList';
+import BookList from '../../Components/AdCard/BookList';
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
@@ -14,16 +14,6 @@ import { useState,useEffect } from 'react';
 const Home = () => {
 
         const [ads, setAds] = useState([]);
-
-//   useEffect(() => {
-//     axios.get("http://localhost:8080")  
-//       .then((res) => {
-//         setAds(res.data);
-//       })
-//       .catch((err) => {
-//         console.error("Error fetching ads:", err);
-//       });
-//   }, []);
 
   const location = useLocation();
 //   console.log('name')
@@ -35,17 +25,7 @@ const Home = () => {
         <Banner name={name}/>
       <Toolbar />
       <ImageSlider />
-
-      <div style={{ display: "flex", flexWrap: "wrap" }}>
-        {
-                ads.map((ad) => {
-                        <AdCard key={ad.id} image={ad.img} price={ad.price} title={ad.title} desc={ad.desc}/>
-                })
-        }
-        </div>
-
-      <h2 style={{ textAlign: 'center', margin: '20px 0' }}>Available Books</h2>
-      <BookList />  
+      <BookList />
       <Footer />
     </div>
   );

@@ -19,7 +19,6 @@ const AdCard = (props) => {
       <div className="top">
         <img src={props.image} className="cardImage"/>
         <button className="heartbutton" onClick={addToCart}> 
-          {/* <VscHeartFilled className="heart"/> */}
           {state? <VscHeartFilled className="heart"/> : <FaRegHeart className="heart"/>}
         </button>
       </div>
