@@ -6,7 +6,7 @@
     /* border: 1px solid #E8EEEF; */
     width: 21vw;
     height: auto;
-    margin: 1.2vw;
+    margin: 1.0vw;
     margin-left: 2vw;
     border-radius: 15px;
     padding-left: 0.5vw;
@@ -147,4 +147,11 @@
     flex-wrap: wrap;
     justify-content: space-evenly;
   }
+}
+
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 2vw;
 }
