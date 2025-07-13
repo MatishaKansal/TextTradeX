@@ -109,9 +109,9 @@ exports.updateProfile = async (req, res) => {
 }
 
 exports.addBookInfo = async (req, res) => {
-  const { bookName, board, bClass, subject, price, medium, author, description } = req.body;
+  const { title, board, Class, subject, price, medium, author, description } = req.body;
 
-  if(!bookName || !board || !bClass || !subject || !price || !medium) {
+  if(!title || !board || !Class || !subject || !price || !medium) {
     return res.status(400).json({message: 'Mandatory fields not provided!'})
   }
 
@@ -124,7 +124,7 @@ exports.addBookInfo = async (req, res) => {
   } : null;
 
   try {
-    const newBook = new Book({ bookName, board, bClass, subject, price, medium, description, file: fileData });
+    const newBook = new Book({ title, board, Class, subject, price, medium, description,author, file: fileData });
     await newBook.save();
     res.status(201).json({message: 'Book added successfully', book: newBook});
   } catch (err) {

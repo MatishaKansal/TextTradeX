@@ -4,16 +4,28 @@ import '../AdCard/AdCard.css';
 import { baseUrl } from '../../Pages/urls.jsx';
 import AdCard from './AdCard.js';
 
-const BookList = () => {
+const BookList = ({ selectedClass, selectedBoard, selectedSubject,selectedMedium, filterResetCounter}) => {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const res = await axios.get(`${baseUrl}/api/books`);
-      setBooks(res.data);
+      try {
+        const queryParams = [];
+        if (selectedClass) queryParams.push(`class=${encodeURIComponent(selectedClass)}`);
+        if (selectedBoard) queryParams.push(`board=${encodeURIComponent(selectedBoard)}`);
+        if (selectedSubject) queryParams.push(`subject=${encodeURIComponent(selectedSubject)}`);
+        if (selectedMedium) queryParams.push(`medium=${encodeURIComponent(selectedMedium)}`);
+
+        const query = queryParams.length > 0 ? `?${queryParams.join('&')}` : '';
+        const res = await axios.get(`${baseUrl}/api/books${query}`);
+        
+        setBooks(res.data);
+    } catch (err) {
+        console.error("Error fetching books:", err);
+      }
     };
     fetchBooks();
-  }, []);
+  }, [selectedClass, selectedBoard, selectedSubject, selectedMedium, filterResetCounter]);
 
   return (
     <div style={{ display: "flex", flexWrap: "wrap" }}>

@@ -10,22 +10,75 @@ import BookList from '../../Components/AdCard/BookList';
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
-
 const Home = () => {
 
-        const [ads, setAds] = useState([]);
+  // const [ads, setAds] = useState([]);
+  const [selectedClass, setSelectedClass] = useState("");
+  const [selectedBoard, setSelectedBoard] = useState("");
+  const [selectedSubject, setSelectedSubject] = useState("");
+  const [selectedMedium, setSelectedMedium] = useState("");
+  const [filterResetCounter, setFilterResetCounter] = useState(0);
 
   const location = useLocation();
-//   console.log('name')
-
+  //   console.log('name')
   const { name } = location.state || {};
+
+  const handleClassChange = (className) => {
+    setSelectedClass(className);
+    setSelectedBoard("");
+    setSelectedSubject("");
+    setSelectedMedium("");
+  };
+
+  const handleBoardChange = (board) => {
+    setSelectedBoard(board);
+    setSelectedClass("");
+    setSelectedSubject("");
+    setSelectedMedium("");
+  };
+
+  const handleSubjectChange = (subject) => {
+    setSelectedSubject(subject);
+    setSelectedClass("");
+    setSelectedBoard("");
+    setSelectedMedium("");
+  };
+
+  const handleMediumChange = (medium) => {
+    setSelectedMedium(medium);
+    setSelectedClass("");
+    setSelectedBoard("");
+    setSelectedSubject("");
+  };
+
+  const handleClearFilters = () => {
+    setSelectedClass("");
+    setSelectedBoard("");
+    setSelectedSubject("");
+    setSelectedMedium("");
+    setFilterResetCounter(prev => prev + 1); // Increment to trigger re-render
+  };
+  
+
   return (
         
     <div className='body'>
-        <Banner name={name}/>
-      <Toolbar />
+      <Banner name={name}/>
+      <Toolbar 
+        onClassChange = {handleClassChange}
+        onBoardChange = {handleBoardChange}
+        onSubjectChange = {handleSubjectChange}
+        onMediumChange = {handleMediumChange}
+        onClearFilters = {handleClearFilters}
+      />
       <ImageSlider />
-      <BookList />
+      <BookList
+        selectedClass = {selectedClass}
+        selectedBoard = {selectedBoard}
+        selectedSubject = {selectedSubject}
+        selectedMedium = {selectedMedium}
+        filterResetCounter={filterResetCounter} // Pass the counter
+        />
       <Footer />
     </div>
   );

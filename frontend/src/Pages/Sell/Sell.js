@@ -9,11 +9,11 @@ import { useLocation } from 'react-router-dom';
 
 const Sell = () => {
     const [data, setData] = useState({
-        bookName: "",
+        title: "",
         description: "",
         price: "",
         board: "",
-        bClass: "",
+        Class: "",
         subject: "",
         author: "",
         medium: "",
@@ -57,11 +57,11 @@ const Sell = () => {
         const formData = new FormData();
 
         // Append all fields except images
-        formData.append('bookName', data.bookName);
+        formData.append('title', data.title);
         formData.append('description', data.description);
         formData.append('price', data.price);
         formData.append('board', data.board);
-        formData.append('bClass', data.bClass);
+        formData.append('Class', data.Class);
         formData.append('subject', data.subject);
         formData.append('author', data.author);
         formData.append('medium', data.medium);
@@ -130,7 +130,7 @@ const Sell = () => {
         setClassNo(e.target.value);
         setData(prev => ({
             ...prev,
-            bClass: e.target.value,
+            Class: e.target.value,
         }));
     };
 
@@ -164,7 +164,7 @@ const Sell = () => {
                     <form className="sell_form">
                         <div className="container">
                             <span className="label">Book name :</span>
-                            <input type="text" name="bookName" onChange={handleChange} value={data.bookName} maxLength={70} className='sell_input' />
+                            <input type="text" name="title" onChange={handleChange} value={data.title} maxLength={70} className='sell_input' />
                         </div>
                         <div className="container">
                             <span className="label">Board :</span>
