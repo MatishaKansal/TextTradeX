@@ -1,0 +1,277 @@
+.viewMore{
+    margin-top: vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.iconDetails{
+  margin-top: 0.5vh;
+}
+.detailScreen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.detailBox {
+    display: flex;
+    width: 85%;
+    background-color: white;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    gap: 15px;
+    padding: 15px;
+    border: 2px #4DB7A9 groove;
+    border-radius: 15px;
+
+}
+
+.titleText{
+  align-content: center;
+  /* border: black 2px groove; */
+}
+
+.moreDetailsText{
+  display: flex;
+  font-size: 3vh;
+  
+}
+.details_margin{
+  margin-left: 0.5vw;
+  font-weight: 700;
+}
+
+.details_text{
+  margin-left: 0.5vw;
+  font-weight: 400;
+}
+
+.icon-fix {
+  vertical-align: middle;
+}
+
+.heart-icon-fix{
+  vertical-align: middle;
+  margin-top: -0.8vh;
+}
+
+
+.aboutTheBook{
+  margin-left: 0.5vw;
+}
+
+.infoLeftSide {
+    width: 55%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap:25px;
+    /* border: 2px #4DB7A9 groove; */
+    /* border-radius: 10px; */
+}
+
+.block{
+  background-color: white;
+  /* margin-top: 1vh; */
+  /* margin-left: -100vw; */
+  width: 100%;
+  max-height: 70vh;
+  display: inline;
+  border: 5px solid #b6d8d3;
+  border-radius: 10px;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  max-height: 70vh;
+  /* margin-left: 20vw ; */
+  overflow: hidden;
+  /* border-radius: 10px; */
+}
+
+.adImage {
+  width: 100%;
+  height: 70vh;
+  object-fit: contain;
+  display: block;
+  transition: 0.5s ease-in-out;
+  border: black;
+  border-radius: 0px;;
+  /* border-radius: 10px; */
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.left-arrow,.right-arrow {
+  position: absolute;
+  top: 47%;
+  font-size: 3vw;
+  padding: 1vw;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
+
+.chatButtons{
+  display: flex;
+}
+
+.chatBtn1{
+  display: flex;
+  justify-content: center; 
+  /* align-items: center; */
+  width: 15vw;
+  background: white;
+  border: 4px groove black;
+  border-radius: 8px;
+  padding: 1vw;
+  gap: 15px;
+  margin: 2vw;
+}
+
+.chatBtn2{
+  display: flex;
+  justify-content: center; 
+  background: linear-gradient(to left, #4CBF97, #4EAFBA);
+  border: none;
+  /* align-items: center; */
+  width: 15vw;
+
+  border-radius: 8px;
+  padding: 1vw;
+  gap: 15px;
+  margin: 2vw;
+}
+
+.chatBtn3{
+  display: flex;
+  justify-content: center; 
+  width: 15vw;
+  background: white;
+  border: 2px groove black;
+  border-radius: 8px;
+  padding: 1vw;
+  gap: 15px;
+  margin: 2vw;
+  margin-left: 9vw;
+}
+
+.btnChat1{
+  background-color: transparent;
+    border: none;
+    color: black;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.4vw;
+}
+
+.btnChat2{
+  background-color: transparent;
+    border: none;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.4vw;
+}
+
+.btnChat3{
+  background-color: transparent;
+    border: none;
+    color: black;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.2vw;
+}
+
+.infoRightSide {
+    width: 45%;
+    /* border: 2px solid #b6d8d3; */
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.lineGap {
+    background-color: #b6d8d3;
+    height: 2px;
+    border: none;
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.mainInfo{
+  gap:20px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.infoPriceTitle{
+  display: flex;
+}
+
+.infoPrice{
+   font-size: 3.5vh;
+}
+.priceStyle{
+  font-size: 3vh;
+  margin-left: 2vw;
+}
+
+.infoTitle{
+  padding-top: 2vh;
+  display: flex;
+  flex-wrap: wrap;
+  font-weight: 700;
+  font-size: 1.5vw;
+}
+
+.descBox{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.infoDesc{
+  margin-left: 2vw;
+  font-size: 1.2vw;
+}
+
+.extraInfo{
+  margin-left: 2vw;
+  font-weight: 600;
+  font-size: 2.5vh;
+  display: flex;
+}
+
+.additional{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 15px;
+}

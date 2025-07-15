@@ -3,7 +3,7 @@ import { FaRegHeart } from "react-icons/fa";
 import "./AdCard.css";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { VscHeartFilled } from "react-icons/vsc";
-
+import { Link,useNavigate } from 'react-router-dom';
 
 
 const AdCard = (props) => {
@@ -16,7 +16,7 @@ const AdCard = (props) => {
 
   return (
     <div className="card">
-      <div className="top">
+      <div className="card_top">
         <img src={props.image} className="cardImage"/>
         <button className="heartbutton" onClick={addToCart}> 
           {state? <VscHeartFilled className="heart"/> : <FaRegHeart className="heart"/>}
@@ -26,9 +26,11 @@ const AdCard = (props) => {
         <h3 className="price">₹ {props.price}</h3>
         <p className="title">{props.title}</p>
         <p className="desc">{props.desc}</p>
-        <div className="button">
-        <button className='btText'>View More</button>
-        <FaLongArrowAltRight style={{fontSize: "20px"}}/>
+        <div className="button_style">
+          <Link to={`/ViewMore/${props.id}`}>
+            <button className='ViewbuttonText'>View More <FaLongArrowAltRight className="arrow_style" />
+            </button>
+          </Link>
       </div>
       </div>
       

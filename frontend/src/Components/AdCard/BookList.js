@@ -33,7 +33,7 @@ const BookList = ({ selectedClass, selectedBoard, selectedSubject,selectedMedium
                 books.map((ad) => {
                         // console.log(ad._id);
                         return(
-                        <AdCard key={ad._id} image={ad.imageUrl} price={ad.price} title={ad.title} desc={ad.description}/>
+                        <AdCard key={ad._id} id={ad._id} image={ad.imageUrl} price={ad.price} title={ad.title} desc={ad.description}/>
                         )
                 })
         }
