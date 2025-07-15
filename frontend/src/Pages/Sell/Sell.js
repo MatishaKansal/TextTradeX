@@ -72,7 +72,7 @@ const Sell = () => {
         }
 
         try {
-            const res = await axios.post("http://localhost:8080/api/auth/sell", formData, {
+            const res = await axios.post("http://localhost:8080/api/books/sell", formData, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data'

@@ -1,5 +1,4 @@
 const User = require('../models/User');
-const Book = require('../models/Book');
 const jwt = require('jsonwebtoken');
 
 // Generate JWT
@@ -108,27 +107,3 @@ exports.updateProfile = async (req, res) => {
   }
 }
 
-exports.addBookInfo = async (req, res) => {
-  const { title, board, Class, subject, price, medium, author, description } = req.body;
-
-  if(!title || !board || !Class || !subject || !price || !medium) {
-    return res.status(400).json({message: 'Mandatory fields not provided!'})
-  }
-
-  const fileData = req.file ? {
-    filename: req.file.filename,
-    originalname: req.file.originalname,
-    path: req.file.path,
-    mimetype: req.file.mimetype,
-    size: req.file.size
-  } : null;
-
-  try {
-    const newBook = new Book({ title, board, Class, subject, price, medium, description,author, file: fileData });
-    await newBook.save();
-    res.status(201).json({message: 'Book added successfully', book: newBook});
-  } catch (err) {
-    console.error('ADD BOOK ERROR:', err);
-    res.status(500).json({message: 'Server error during book addition'});
-  }
-};

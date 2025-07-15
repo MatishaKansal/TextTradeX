@@ -1,6 +1,11 @@
 const express = require('express');
 const router = express.Router();
 const Book = require('../models/Book');
+const protect = require('../middleware/auth');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
+const { addBookInfo, getBookById } = require('../controllers/bookController');
+
 
 // get /api/books
 router.get('/', async (req, res) => {
@@ -18,5 +23,11 @@ router.get('/', async (req, res) => {
       res.status(500).json({ message: err.message });
     }
 });
+
+// POST new book info
+router.post('/sell', protect, upload.array('images', 4), addBookInfo);
+
+// GET book info
+router.get('/bookInfo/:id', getBookById);
 
 module.exports = router;
