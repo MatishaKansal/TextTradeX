@@ -15,7 +15,7 @@
     box-sizing: border-box;
 }
 
-.top {
+.card_top {
   margin: 2%;
   border: 1px groove black;
   border-radius: 12px;
@@ -111,26 +111,39 @@
 
 }
 
-.button {
+.button_style {
     display: flex;
     justify-content: center; 
     align-items: center;
     font-size: 2vw;
-    margin-left: 5vw;
+    height: 4vh;
+    margin-left: 3vw;
     margin-top: auto;
     margin-bottom: 2vh;
-    width: 50%;
+    width: 70%;
     background: linear-gradient(to left, #4CBF97, #4EAFBA);
     border: 1px solid black;
     border-radius: 8px;
-    padding: 2px;
+    /* padding-top: -0.5vh; */
+    /* padding: 0.5vh; */
 }
 
-.btText {
-    background-color: transparent;
-    border: none;
-    font-weight: 500;
-    border-radius: 8px;
+.arrow_style{
+  color: black;
+  font-size: 3vh;
+  vertical-align: middle;
+  /* padding-top: 1vh; */
+
+}
+
+.ViewbuttonText {
+  /* margin-top: -2vh; */
+  background-color: transparent;
+  border: none;
+  font-weight: 500;
+  border-radius: 8px;
+  position: relative;
+  top: -1vh;
 }
 
 @media (max-width: 1024px) {
