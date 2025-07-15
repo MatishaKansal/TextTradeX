@@ -29,7 +29,7 @@ const ViewMore = () => {
     const fetchBook = async () => {
       try {
         console.log(id)
-        const res = await axios.get(`${baseUrl}/api/books/${id}`);
+        const res = await axios.get(`${baseUrl}/api/books/bookInfo/${id}`);
         setBook(res.data);
       } catch (err) {
         console.error('Failed to load book:', err);
@@ -119,7 +119,7 @@ const ViewMore = () => {
 
             <hr className='lineGap' />
 
-            {/* <hr className='lineGap' /> */}
+            { <hr className='lineGap' /> }
 
             <div className="additional">
               <div className="moreDetailsText">
@@ -129,27 +129,27 @@ const ViewMore = () => {
               <div className="extraInfo">
                 <LuSchool style={{color: "#164841"}}/>
                 <span className="details_margin"> Subject : </span>
-                {/* <span className="details_text"> {book.subject} </span> */}
+                <span className="details_text"> {book.subject} </span>
                 </div>
               <div className="extraInfo">
                 <MdClass style ={{color: "#4300DB"}}/>
                 <span className="details_margin"> Class : </span>
-                {/* <span className="details_text"> {book.class} </span> */}
+                <span className="details_text"> {book.Class} </span>
                 </div>
               <div className="extraInfo">
                 <IoSchool style= {{color: "brown"}}/>
                 <span className="details_margin"> Board : </span>
-                {/* <span className="details_text"> {book.board} </span> */}
+                <span className="details_text"> {book.board} </span>
               </div>
               <div className="extraInfo">
                 <GrLanguage style={{color: "#4DAADD"}}/>
                 <span className="details_margin"> Medium : </span>
-                {/* <span className="details_text"> {book.medium} </span> */}
+                <span className="details_text"> {book.medium} </span>
                 </div>
               <div className="extraInfo">
                 <FaLocationArrow style={{color:"#636363"}}/>
                 <span className="details_margin"> Location : </span> 
-                {/* <span className="details_text"> {book.location} </span> */}
+                <span className="details_text"> {book.location} </span>
             </div>
             </div>
 
