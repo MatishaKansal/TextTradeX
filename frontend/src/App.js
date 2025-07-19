@@ -8,7 +8,7 @@ import Sell from './Pages/Sell/Sell';
 import Information from './Pages/Information/Information';
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import ViewMore from './Pages/ViewMore/ViewMore';
-
+import SearchPage from './Pages/SearchPage/SearchPage'
 
 function App() {
   return (
@@ -22,7 +22,8 @@ function App() {
           <Route path="/Signup" element={<Signup />} /> 
           <Route path="/Sell" element={<Sell />} /> 
           <Route path="/Information" element={<Information />} /> 
-          <Route path="/ViewMore/:id" element={<ViewMore />} />  
+          <Route path="/ViewMore/:id" element={<ViewMore />} /> 
+          <Route path="/Search" element={<SearchPage />} /> 
         </Routes>
       </BrowserRouter>
 
