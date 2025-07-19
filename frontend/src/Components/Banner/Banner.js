@@ -9,8 +9,9 @@ import { BsCart4 } from "react-icons/bs";
 import { FaRegHeart } from "react-icons/fa";
 // import Signup from '../Signup/Signup';
 
-const Banner = () => {
+const Banner = ({onSearch}) => {
     const [name, setName] = useState("");
+    const [query, setQuery] = useState("");
     const [dropdownOpen, setDropdownOpen] = useState(false);
     const navigate = useNavigate();
 
@@ -20,6 +21,12 @@ const Banner = () => {
         setName(userData.firstName);
         }
     }, []);
+
+    const handleSearch = () => {
+        if (query.trim()) {
+            onSearch(query.trim());
+        }
+    };
 
     const handleLogout = () => {
         localStorage.removeItem("user");
@@ -35,8 +42,18 @@ const Banner = () => {
                 <Link to="/">
                 <span className="logo_name">TextTradeX</span>
                 </Link>
-                <input className = "search_bar" type="text" placeholder="Search for Books..."></input>
-                <FaSearch className='search_icon'/>
+                <input
+                    className = "search_bar"
+                    type="text"
+                    placeholder="Search for Books..."
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={(e) => { 
+                        if (e.key ==='Enter')
+                            onSearch(query.trim()); 
+                }}
+                />
+                <FaSearch className='search_icon' onClick={handleSearch} />
 
 
                 {name ? (

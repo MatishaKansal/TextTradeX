@@ -6,7 +6,7 @@ import Banner from "../../Components/Banner/Banner";
 import AdCard from "../../Components/AdCard/AdCard";
 import Footer from "../../Components/Footer/Footer";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
-import BookList from '../../Components/AdCard/BookList';
+import BookList from '../../Components/BookList/BookList';
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
@@ -18,6 +18,7 @@ const Home = () => {
   const [selectedSubject, setSelectedSubject] = useState("");
   const [selectedMedium, setSelectedMedium] = useState("");
   const [filterResetCounter, setFilterResetCounter] = useState(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const location = useLocation();
   //   console.log('name')
@@ -58,12 +59,21 @@ const Home = () => {
     setSelectedMedium("");
     setFilterResetCounter(prev => prev + 1); // Increment to trigger re-render
   };
+
+  const handleSearch = (term) => {
+    setSelectedClass("");
+    setSelectedBoard("");
+    setSelectedSubject("");
+    setSelectedMedium("");
+    setSearchQuery(term);
+    setFilterResetCounter(prev => prev + 1); 
+  };
   
 
   return (
         
     <div className='body'>
-      <Banner name={name}/>
+      <Banner name={name} onSearch={handleSearch}/>
       <Toolbar 
         onClassChange = {handleClassChange}
         onBoardChange = {handleBoardChange}
@@ -78,6 +88,7 @@ const Home = () => {
         selectedSubject = {selectedSubject}
         selectedMedium = {selectedMedium}
         filterResetCounter={filterResetCounter} // Pass the counter
+        searchQuery={searchQuery} // Pass the search query
         />
       <Footer />
     </div>
