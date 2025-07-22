@@ -1,0 +1,140 @@
+ .body{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../background.png");
+}
+
+.box{
+    margin: auto;
+    display: flex;
+    border-radius: 20px;
+    border: 2px solid black;
+    box-shadow: 15px 20px rgb(205, 200, 200);
+    width: 50%;
+    position: center;
+    height: 85%;
+}
+.left{
+    background-color: white;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    width : 65%;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.text{
+    font-size: 2vh; 
+    margin-top: 10%;
+    margin-left: 0.5%;
+}
+.Ltext{
+    font-weight: 500;
+    font-size: 6vh;
+    margin-top: -5%;
+}
+.SignUpButton{
+    font-size: large;
+    font-weight: 600;
+    border-radius: 15px;
+    border: none;
+    padding: 5px;
+    width: 15vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    gap: 20px;
+    background: linear-gradient(to top, #4CBF97, #4EAFBA);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 35%;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+}
+
+.input{
+    border-radius: 5px;
+    border-color: rgb(41, 40, 40);
+    height: 4vh;
+}
+
+.LogButton{
+    font-size: 2.8vh;
+    font-weight: 300;
+    border-radius: 15px;
+    margin-left: auto;
+    width: 15vw;
+    margin-right: auto;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    background-color: #3AAF9F;
+    color: white;
+    margin-top: 1.5vh;
+}
+
+/* .Forgot{
+    margin-top:-7.3vh;
+    font-size: 2.5vh;
+    font-weight: 500;
+    border-radius: 15px;
+    margin-left: 9vw;
+    width: 25vh;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    background-color: white;
+    color: black;
+} */
+
+.break {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin-top: 3%;
+}
+
+.break hr {
+  width: 10vw;         
+  height: 1px;          
+  border: none;
+  background-color: black;
+  margin-top: 3%;
+}
+
+.optionBox{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 70%;
+    margin-bottom: 10%;
+    /* margin-top: 2%; */
+}
+
+.box1{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px groove rgb(41, 40, 40);
+    gap: 8px;
+    height: 4vh;
+    font-size: 2vh;
+    padding-left: 3px;
+    padding-right: 3px;
+    border-radius: 5px;
+}

@@ -1,0 +1,71 @@
+.footerStyle {
+  background: linear-gradient(to top, #4CBF97, #4EAFBA);
+  text-align: left;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  position: relative;
+  /* display: flex; */
+}
+
+.topRow{
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.f_head{
+  /* text-decoration: underline; */
+  font-size: 1.3vw;
+  font-weight: 700;
+}
+
+.f_details{
+  background: none;
+  border: none;
+  font-size: 1vw;
+  margin-left: -0.2vw;
+  cursor: pointer;
+}
+.f_details:hover{
+  text-decoration: underline;
+  color: purple;
+}
+.f_detail{
+  background: none;
+  border: none;
+  font-size: 1vw;
+  margin-left: -0.2vw;
+}
+
+.buttonStyle {
+  /* position: absolute;
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px;
+  cursor: pointer;
+  font-size: 1.5vw;
+  margin-left: 94vw; */
+  
+  position: absolute;
+  top: -20px; /* pull the button upward, outside the footer */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: black;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  padding: 12px;
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}

@@ -1,0 +1,57 @@
+.back{
+  background-color: white;
+  /* margin-top: 1vh; */
+  /* margin-left: -100vw; */
+  width: 100%;
+  max-height: 70vh;
+  display: inline;
+}
+.slider {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  max-height: 70vh;
+  /* margin-left: 20vw ; */
+  overflow: hidden;
+  /* border-radius: 10px; */
+}
+
+.image {
+  width: 100%;
+  height: 70vh;
+  object-fit: cover;
+  display: block;
+  transition: 0.5s ease-in-out;
+  border: black;
+  border-radius: 0px;;
+  /* border-radius: 10px; */
+}
+
+.slide {
+  display: none;
+}
+
+.slide.active {
+  display: block;
+}
+
+.left-arrow,.right-arrow {
+  position: absolute;
+  top: 47%;
+  font-size: 3vw;
+  padding: 1vw;
+  background-color: rgba(0,0,0,0.4);
+  color: white;
+  border: none;
+  cursor: pointer;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.left-arrow {
+  left: 10px;
+}
+
+.right-arrow {
+  right: 10px;
+}
