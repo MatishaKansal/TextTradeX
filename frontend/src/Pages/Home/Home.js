@@ -9,6 +9,7 @@ import ImageSlider from "../../Components/ImageSlider/ImageSlider";
 import BookList from '../../Components/BookList/BookList';
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
+import Faq from '../../Components/FAQ/Faq';
 
 const Home = () => {
 
@@ -90,6 +91,7 @@ const Home = () => {
         filterResetCounter={filterResetCounter} // Pass the counter
         searchQuery={searchQuery} // Pass the search query
         />
+        <Faq />
       <Footer />
     </div>
   );
