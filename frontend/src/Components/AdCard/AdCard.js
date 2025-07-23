@@ -17,7 +17,14 @@ const AdCard = (props) => {
   return (
     <div className="card">
       <div className="card_top">
-        <img src={props.image} className="cardImage"/>
+        <img
+         src={
+          props.images && props.images.length > 0
+            ? `http://localhost:8080/${props.images[0].path}`
+            : 'https://via.placeholder.com/150'
+        } 
+        alt={props.title}
+        className="cardImage"/>
         <button className="heartbutton" onClick={addToCart}> 
           {state? <VscHeartFilled className="heart"/> : <FaRegHeart className="heart"/>}
         </button>

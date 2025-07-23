@@ -99,7 +99,7 @@ const BookList = ({
         <AdCard
           key={ad._id}
           id={ad._id}
-          image={ad.imageUrl}
+          images={ad.images}
           price={ad.price}
           title={ad.title}
           desc={ad.description}

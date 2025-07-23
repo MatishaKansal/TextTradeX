@@ -9,13 +9,15 @@ const BookSchema = new mongoose.Schema({
   medium: { type: String, required: true },
   author: { type: String },
   description: { type: String },
-  file: {
+  images: [
+    {
     filename: String,
     originalname: String,
     path: String,
     mimetype: String,
     size: Number
-  },
+  }
+  ],
 });
 
 module.exports = mongoose.model('Book', BookSchema, 'books');
