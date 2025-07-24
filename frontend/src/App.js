@@ -9,6 +9,7 @@ import Information from './Pages/Information/Information';
 import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 import ViewMore from './Pages/ViewMore/ViewMore';
 import SearchPage from './Pages/SearchPage/SearchPage'
+import Cart from './Pages/Cart/Cart'
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path="/Information" element={<Information />} /> 
           <Route path="/ViewMore/:id" element={<ViewMore />} /> 
           <Route path="/Search" element={<SearchPage />} /> 
+          <Route path="/Cart" element={<Cart />} /> 
         </Routes>
       </BrowserRouter>
 

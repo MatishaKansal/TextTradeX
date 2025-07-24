@@ -10,21 +10,18 @@ const AdCard = (props) => {
 
   const [state,setState]= useState(false);
 
-  const addToCart =(e) =>{
-    setState((prev) => !prev);
-  }
+  const addToCart = () => {
+    setState(prev => {
+      const newState = !prev;
+      props.onCartToggle(props.id, newState);
+      return newState;
+    });
+  };
 
   return (
     <div className="card">
       <div className="card_top">
-        <img
-         src={
-          props.images && props.images.length > 0
-            ? `http://localhost:8080/${props.images[0].path}`
-            : 'https://via.placeholder.com/150'
-        } 
-        alt={props.title}
-        className="cardImage"/>
+        <img src={props.image} className="cardImage"/>
         <button className="heartbutton" onClick={addToCart}> 
           {state? <VscHeartFilled className="heart"/> : <FaRegHeart className="heart"/>}
         </button>

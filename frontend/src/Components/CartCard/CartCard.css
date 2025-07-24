@@ -1,0 +1,152 @@
+.cart{
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartBox{
+    display: flex;
+    border-radius: 10px;
+    width: 70vw;
+    position: center;
+     border: 2px solid #4EAFBA;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.cartCard{
+    display: flex;
+    border: 2px solid #4EAFBA;
+    border-radius: 10px;
+    width: 68vw;
+    height: 30vh;
+    padding: 15px;
+    gap: 30px;
+    position: relative;
+}
+
+.cartCardLeft{
+    width: 30%;
+}
+
+.cartCardImage {
+    border-radius: 10px;
+    width: 100%;
+    object-fit: contain;
+    display: block;
+    background-color: white;
+    overflow: hidden;
+    height: 30vh;
+    border: 1px solid;
+}
+
+.heartbutton {
+    background: none;
+    border: none;
+}
+
+.cartHeart {
+    position: absolute;
+    top: 20px; 
+    right: 20px;
+    background-color: white;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+}
+
+.cartCardRight{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 65%;
+    padding: 5px;
+}
+
+.price {
+    font-size: 3vh;
+    margin: 0;
+    line-height: 1.5;
+    font-weight: 500;
+    
+}
+
+.title {
+    width: 20vw;
+    font-weight: 700;
+    font-size: 4vh;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cartDesc {
+    margin: 0;
+    line-height: 1.5;
+    font-size: 14px;
+    white-space: nowrap;
+    /* keep text on one line */
+    overflow: hidden;
+    /* hide overflow */
+    text-overflow: ellipsis;
+    /* add ... */
+    width: 100%;
+
+}
+
+.twoButtons{
+    display: flex;
+    width: 100%;
+    gap: 10%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2vw;
+    /* margin-left: 2.5vw;
+    margin-top: auto;
+    margin-bottom: 2vh; */
+    width: 40%;
+    background: linear-gradient(to left, #4CBF97, #4EAFBA);
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.btText {
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    border-radius: 8px;
+}
+
+.removeButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2vw;
+    /* margin-left: 2.5vw;
+    margin-top: auto;
+    margin-bottom: 2vh; */
+    width: 50%;
+    background: linear-gradient(to left, #4CBF97, #4EAFBA);
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.removeButtonText{
+    background-color: transparent;
+    border: none;
+    font-weight: 500;
+    border-radius: 8px;
+}

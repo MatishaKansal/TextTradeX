@@ -3,9 +3,9 @@ import Dropdown from './Dropdown/Dropdown';
 import "./Toolbar.css"
 
 const Toolbar = ({ onClassChange, onBoardChange, onSubjectChange, onMediumChange, onClearFilters }) => {
-  const boardOptions = ['CBSE', 'CISCE', 'IB', 'IGCSE', 'NIOS', 'ICSE'];
-  const classOptions = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
-  const subjectOptions = ['Math', 'Science', 'English', 'History', 'Geography', 'Computer Science','Hindi'];
+  const boardOptions = ["CBSE","ICSE","CISCE","IGCSE","NIOS","State Board","IB"];
+  const classOptions = [ "Nursery", "KG", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"];
+  const subjectOptions = ["Hindi", "English", "Mathematics", "Chemistry", "Biology", "Physics", "Economics", "History", "Political Science","Civics"];
   const mediumOptions = ['English', 'Hindi'];
 
 
