@@ -49,7 +49,7 @@ const Banner = () => {
     if (isLoggedIn) {
       navigate('/Sell');
     } else {
-      navigate('/Signup'); // or use "/Signin" if that’s the correct route
+      navigate('/Login');
     }
   };
 
