@@ -73,7 +73,7 @@ const Banner = ({onSearch}) => {
                 )}
                 </div>
             ) : (
-                <button className = "register" onClick={() => navigate("/Signup")} >
+                <button className = "register" onClick={() => navigate("/Login")} >
                 Register
                 </button>
             )}
