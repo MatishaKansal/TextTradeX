@@ -4,6 +4,10 @@
     /* background-color: white; */
 }
 
+.searchFilterContainer{
+  background-color: white;
+}
+
 .divider {
   width: 4px; /* line thickness */
   background-color: #116D77;
@@ -11,9 +15,8 @@
 }
 
 .searchCardContainer {
-  margin-left: 2.5vw;
+  margin-left: 0.8vw;
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 cards per row */
   gap: 2vw;
   padding: 2vh;
 }

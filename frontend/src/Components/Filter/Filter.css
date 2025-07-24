@@ -54,3 +54,14 @@
     margin-left: -15px;
     margin-right: -15px;
 }
+
+.clearFilterButton{
+    margin-top: 1vh;
+    padding: 2vh;
+    background-color: #4EAFBA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 2.5vh;
+}
