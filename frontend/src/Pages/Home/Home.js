@@ -7,6 +7,7 @@ import AdCard from "../../Components/AdCard/AdCard";
 import Footer from "../../Components/Footer/Footer";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
 import BookList from '../../Components/AdCard/BookList';
+import Faq from "../../Components/FAQ/Faq";
 import { useLocation } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 
@@ -90,6 +91,7 @@ const Home = () => {
         // filterResetCounter={filterResetCounter} // Pass the counter
         // searchQuery={searchQuery} // Pass the search query
         />
+          <Faq />
       <Footer />
     </div>
   );
