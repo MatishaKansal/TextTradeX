@@ -71,17 +71,17 @@ const Sell = () => {
             formData.append('images', data.images[i]);
         }
 
-        // try {
-        //     const res = await axios.post("http://localhost:8080/api/books/sell", formData, {
-        //         headers: {
-        //             Authorization: `Bearer ${token}`,
-        //             'Content-Type': 'multipart/form-data'
-        //         }
-        //     });
-        //     alert("Data sent successfully!");
-        // } catch (err) {
-        //     console.error("Error uploading:", err);
-        // }
+        try {
+            const res = await axios.post("http://localhost:8080/api/books/sell", formData, {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+            alert("Data sent successfully!");
+        } catch (err) {
+            console.error("Error uploading:", err);
+        }
     };
 
     // Getting name instead of register

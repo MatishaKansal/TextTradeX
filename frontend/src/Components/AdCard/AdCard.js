@@ -11,12 +11,10 @@ const AdCard = (props) => {
   const [state,setState]= useState(false);
 
   const addToCart = () => {
-    setState(prev => {
-      const newState = !prev;
-      props.onCartToggle(props.id, newState);
-      return newState;
-    });
-  };
+        const newState = !state;
+        setState(newState);
+        props.onCartToggle(props.id, newState);
+    };
 
   return (
     <div className="card">

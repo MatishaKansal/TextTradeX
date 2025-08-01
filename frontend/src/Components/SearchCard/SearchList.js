@@ -28,7 +28,7 @@ const SearchList = ({ filters }) => {
       try {
         const cartIds = Object.keys(cartItems);
         console.log("Auto-sending cart to backend:", cartIds);
-        await axios.post(`${baseUrl}/api/cart`, { cart: cartIds });
+        await axios.post(`${baseUrl}/api/cart/update`, { cart: cartIds });
         console.log("Cart sent successfully!");
       } catch (error) {
         console.error("Error sending cart:", error);

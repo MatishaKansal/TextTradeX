@@ -1,9 +1,7 @@
 import React from 'react';
 import "./Home.css";
-// import Header from "../../Components/Header/Header";
 import Toolbar from "../../Components/Toolbar/Toolbar";
 import Banner from "../../Components/Banner/Banner";
-import AdCard from "../../Components/AdCard/AdCard";
 import Footer from "../../Components/Footer/Footer";
 import ImageSlider from "../../Components/ImageSlider/ImageSlider";
 import BookList from '../../Components/AdCard/BookList';
@@ -84,12 +82,12 @@ const Home = () => {
       />
       <ImageSlider />
       <BookList
-        // selectedClass = {selectedClass}
-        // selectedBoard = {selectedBoard}
-        // selectedSubject = {selectedSubject}
-        // selectedMedium = {selectedMedium}
-        // filterResetCounter={filterResetCounter} // Pass the counter
-        // searchQuery={searchQuery} // Pass the search query
+        selectedClass = {selectedClass}
+        selectedBoard = {selectedBoard}
+        selectedSubject = {selectedSubject}
+        selectedMedium = {selectedMedium}
+        filterResetCounter={filterResetCounter} // Pass the counter
+        searchQuery={searchQuery} // Pass the search query
         />
           <Faq />
       <Footer />
