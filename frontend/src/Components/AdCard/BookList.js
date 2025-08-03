@@ -138,7 +138,15 @@ const BookList = ({ selectedClass, selectedBoard, selectedSubject, selectedMediu
             return (
 
               //CHANGES MADE
-              <AdCard key={ad._id} id={ad._id} image={ad.imageUrl} price={ad.price} title={ad.title} desc={ad.description} onCartToggle={handleCartToggle} />
+              <AdCard 
+              key={ad._id} 
+              id={ad._id} 
+              // image={ad.imageUrl}
+              images={ad.images} 
+              price={ad.price} 
+              title={ad.title} 
+              desc={ad.description} 
+              onCartToggle={handleCartToggle} />
             )
           })
         }

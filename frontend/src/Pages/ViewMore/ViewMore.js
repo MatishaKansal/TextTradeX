@@ -83,7 +83,8 @@ const ViewMore = () => {
                     key={index}
                   >
                     {index === current && (
-                      <img src={img} alt="slider" className="adImage" />
+                      // <img src={img} alt="slider" className="adImage" />
+                      <img src={`${baseUrl}/${img.path}`} alt="slider" className="adImage" />
                     )}
                   </div>
                 ))}
