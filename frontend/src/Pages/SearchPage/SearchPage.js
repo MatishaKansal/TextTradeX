@@ -22,7 +22,7 @@ const SearchPage = () => {
   // Update searchQuery when URL changes
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
-    const query = queryParams.get("query") || "";
+    const query = queryParams.get("search") || "";
     console.log("📌 URL Search Query:", query);
 
     setFilters(prev => ({

@@ -27,12 +27,12 @@ const Filter = ({ onFilterChange }) => {
   const classOptions = [
       "Nursery",
       "KG",
-      "I", "II", "III", "IV", "V", "VI",
-      "VII", "VIII", "IX", "X", "XI", "XII"
+      "1", "2", "3", "4", "5", "6",
+      "7", "8", "9", "10", "11", "12"
   ];
 
   const subjectOptions = [
-      "Hindi", "English", "Mathematics", "Chemistry", "Biology",
+      "Hindi", "English", "Maths", "Chemistry", "Biology",
       "Physics", "Economics", "History", "Political Science","Civics"
   ].sort();
 

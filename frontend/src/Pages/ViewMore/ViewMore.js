@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./ViewMore.css";
 import axios from 'axios';
-import { baseUrl } from "../urls";
+import { baseUrl } from "../urls.jsx";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 import Banner from '../../Components/Banner/Banner'
@@ -83,7 +83,7 @@ const ViewMore = () => {
                     key={index}
                   >
                     {index === current && (
-                      <img src={img} alt="slider" className="adImage" />
+                      <img src={`${baseUrl}/${img.path}`} alt="slider" className="adImage" />
                     )}
                   </div>
                 ))}

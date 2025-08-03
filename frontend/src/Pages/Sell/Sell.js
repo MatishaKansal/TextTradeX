@@ -30,15 +30,19 @@ const Sell = () => {
     // Image uploading
 
     const handleImageChange = (e) => {
-        const files = Array.from(e.target.files);
-        if (files.length === 0 || files.length > 4) {
-            alert("Please select at least 1 and at most 4 images.");
-            e.target.value = null; 
+        const selectedFiles = Array.from(e.target.files);
+
+        //combine existing images with new ones
+        const combinedFiles = [...data.images, ...selectedFiles];
+
+        // Limit to 4 images
+        if (combinedFiles.length > 4) {
+            alert("You can only upload a maximum of 4 images.");
             return;
         }
         setData(prev => ({
             ...prev,
-            images: files
+            images: combinedFiles,
         }));
     };
 
@@ -333,6 +337,11 @@ const Sell = () => {
                                 accept="image/*"
                                 onChange={handleImageChange}
                             />
+                            <ul style={{marginTop:'10px',color: '#444' }}>
+                                {data.images.map((img, index) => (
+                                <li key={index}>{img.name}</li>
+                                ))}
+                            </ul>
                     </div>                    
                     </form>
                 </div>

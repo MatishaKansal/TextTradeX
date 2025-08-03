@@ -16,9 +16,9 @@ const parseSearchQuery = (query) => {
   const mediumOptions = ['english', 'hindi'];
 
   const subjectAliases = {
-    'math': 'Math',
-    'mathematics':'Math',
-    'maths': 'Math',
+    'math': 'Maths',
+    'mathematics':'Maths',
+    'maths': 'Maths',
     'science': 'Science',
     'sci': 'Science',
     'english':'English',
@@ -47,7 +47,7 @@ const parseSearchQuery = (query) => {
     'hindi': 'Hindi'
   };
 
-  //Extract board
+  // Extract board
   for (const board of boardOptions) {
     const regex = new RegExp(`\\b${board}\\b`, 'i');
     if (regex.test(remainingQuery)) {
@@ -66,7 +66,7 @@ const parseSearchQuery = (query) => {
     /\b(\d{1,2})rd\b/i,
     /\b(\d{1,2})st\b/i,
     /\bstd\s+(\d{1,2})\b/i
-  ]
+  ];
 
   for (const pattern of classPatterns) {
     const match = remainingQuery.match(pattern);
@@ -100,7 +100,7 @@ const parseSearchQuery = (query) => {
     }
   }
 
-  // clean up remaining query
+  // Clean up remaining query
   const stopWords = ['for', 'books', 'book', 'of', 'the', 'and', 'or', 'in', 'on', 'at', 'to', 'a', 'an'];
   remainingQuery = remainingQuery.split(' ')
     .filter(word => word.length > 0 && !stopWords.includes(word))
@@ -112,32 +112,48 @@ const parseSearchQuery = (query) => {
   };
 };
 
-
-// get /api/books
+// GET /api/books
 router.get('/', async (req, res) => {
   console.log('Backend search query:', req.query);
   try {
-    let filterConditions = {};
+    let filterConditionsRaw = {};
     let textSearchConditions = [];
 
-    if (req.query.class) filterConditions.class = req.query.class;
-    if (req.query.board) filterConditions.board = req.query.board;
-    if (req.query.subject) filterConditions.subject = req.query.subject;
-    if (req.query.medium) filterConditions.medium = req.query.medium;
+    if (req.query.class) {
+      const classArray = Array.isArray(req.query.class)
+        ? req.query.class
+        : req.query.class.split(',');
+      filterConditionsRaw.class = classArray;
+    }
 
+    if (req.query.board) {
+      filterConditionsRaw.board = req.query.board;
+    }
+
+    if (req.query.subject) {
+      const subjectArray = Array.isArray(req.query.subject)
+        ? req.query.subject
+        : req.query.subject.split(',');
+      filterConditionsRaw.subject = subjectArray;
+    }
+
+    if (req.query.medium) {
+      filterConditionsRaw.medium = req.query.medium;
+    }
+
+    // If using search bar
     if (req.query.search) {
       const searchTerm = req.query.search.trim();
       const { filters, remainingText } = parseSearchQuery(searchTerm);
-      
 
-      if (!req.query.class && !req.query.board && !req.query.subject && !req.query.medium) {
-        Object.assign(filterConditions, filters);
-      }
+      if (!req.query.class && filters.class) filterConditionsRaw.class = [filters.class];
+      if (!req.query.board && filters.board) filterConditionsRaw.board = [filters.board];
+      if (!req.query.subject && filters.subject) filterConditionsRaw.subject = [filters.subject];
+      if (!req.query.medium && filters.medium) filterConditionsRaw.medium = filters.medium;
 
-      const textToSearch = remainingText || searchTerm;
-
+      const textToSearch = remainingText || '';
       if (textToSearch) {
-        const searchWords = textToSearch.split(/\s+/).filter(word => word.length > 0);
+        const searchWords = textToSearch.split(/\s+/).map(w => w.trim()).filter(word => word.length > 0);
 
         if (searchWords.length > 0) {
           textSearchConditions = searchWords.flatMap(word => {
@@ -145,39 +161,41 @@ router.get('/', async (req, res) => {
             return [
               { title: { $regex: regex } },
               { description: { $regex: regex } },
-              { author : { $regex: regex } },
+              { author: { $regex: regex } }
             ];
           });
-        }}
+        }
       }
-
-      // build the final query
-      let query = {};
-
-      if (Object.keys(filterConditions).length > 0 && textSearchConditions.length > 0) {
-        const andConditions = [
-          ...Object.entries(filterConditions).map(([key, value]) => ({ [key]: value })),
-          { $or: textSearchConditions }
-        ];
-        query = { $and: andConditions };
-      } else if (Object.keys(filterConditions).length > 0) {
-        query = filterConditions;
-      } else if (textSearchConditions.length > 0) {
-        query = { $or: textSearchConditions };
-      }
-
-  
-      console.log('Final query:', JSON.stringify(query, null, 2));
-      
-      const books = await Book.find(query);
-      res.json(books);
-      
-    } catch (err) {
-      console.error('Search error:', err);
-      res.status(500).json({ message: err.message });
     }
-  });
 
+    // Build filter conditions
+    const filterConditions = [];
+    for (const [key, value] of Object.entries(filterConditionsRaw)) {
+      if (Array.isArray(value)) {
+        filterConditions.push({ [key]: { $in: value } });
+      } else {
+        filterConditions.push({ [key]: value });
+      }
+    }
+
+    // Final MongoDB query
+    let query = {};
+    if (filterConditions.length > 0 && textSearchConditions.length > 0) {
+      query = { $and: [...filterConditions, { $or: textSearchConditions }] };
+    } else if (filterConditions.length > 0) {
+      query = { $and: filterConditions };
+    } else if (textSearchConditions.length > 0) {
+      query = { $or: textSearchConditions };
+    }
+
+    console.log('Final query:', JSON.stringify(query, null, 2));
+    const books = await Book.find(query);
+    res.json(books);
+  } catch (err) {
+    console.error('Search error:', err);
+    res.status(500).json({ message: err.message });
+  }
+});
 
 // POST new book info
 router.post('/sell', protect, upload.array('images', 4), addBookInfo);

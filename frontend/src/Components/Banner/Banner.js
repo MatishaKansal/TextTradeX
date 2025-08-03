@@ -35,7 +35,7 @@ const Banner = () => {
 
   const handleSearch = () => {
     if (query.trim()) {
-      navigate(`/search?query=${encodeURIComponent(query.trim())}`);
+      navigate(`/search?search=${encodeURIComponent(query.trim())}`);
     }
   };
 

@@ -50,18 +50,20 @@ const SearchList = ({ filters }) => {
 
         // ✅ Fixed search bar query
         if (filters.searchQuery && filters.searchQuery.trim() !== "") {
-            queryParams.push(`query=${encodeURIComponent(filters.searchQuery.trim())}`);
+            queryParams.push(`search=${encodeURIComponent(filters.searchQuery.trim())}`);
             console.log("🔍 Search Query:", filters.searchQuery);
         }
 
         // Sidebar filters
         if (filters.classes?.length > 0) {
           queryParams.push(`class=${filters.classes.map(encodeURIComponent).join(',')}`);
+          
           console.log("📚 Class Filter:", filters.classes);
         }
 
         if (filters.subjects?.length > 0) {
-          queryParams.push(`sub=${filters.subjects.map(encodeURIComponent).join(',')}`);
+          queryParams.push(`subject=${filters.subjects.map(encodeURIComponent).join(',')}`);
+          
           console.log("📚 Subject Filter:", filters.subjects);
         }
 
@@ -92,18 +94,24 @@ const SearchList = ({ filters }) => {
   return (
     <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center" }}>
       {books.length > 0 ? (
-        books.map(ad => (
+        books.map(ad => {
+          const image = ad.images && ad.images.length > 0
+          ? ad.images[0].path || ad.images[0].url || ad.images[0]
+          : 'https://via.placeholder.com/150';
+
+          return (
           <SearchCard
             key={ad._id}
             id={ad._id}
-            image={ad.imageUrl}
+            image={ad.images}
             price={ad.price}
             title={ad.title}
             desc={ad.description}
             onCartToggle={handleCartToggle}
           />
-        ))
-      ) : (
+        );
+      }) 
+    ): (
         <p style={{ padding: '2rem', fontSize: '1.2rem' }}>No books found.</p>
       )}
     </div>
